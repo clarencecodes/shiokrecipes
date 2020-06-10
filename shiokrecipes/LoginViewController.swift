@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField! {
         didSet {
+            // Add line to bottom of textfield
             let line: UIView = {
                 let view = UIView()
                 view.translatesAutoresizingMaskIntoConstraints = false
@@ -34,6 +35,7 @@ class LoginViewController: UIViewController {
                 line.rightAnchor.constraint(equalTo: emailTextField.rightAnchor)
             ])
             
+            // Set the font and keyboard type for the textfield
             emailTextField.font = Constants.Design.Font.newYorkRegular.withSize(18)
             emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.emailOrUsername, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             emailTextField.keyboardType = .emailAddress
@@ -42,6 +44,7 @@ class LoginViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField! {
         didSet {
+            // Add line to bottom of textfield
             let line: UIView = {
                 let view = UIView()
                 view.translatesAutoresizingMaskIntoConstraints = false
@@ -57,6 +60,7 @@ class LoginViewController: UIViewController {
                 line.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor)
             ])
             
+            // Set the font and keyboard type for the textfield
             passwordTextField.font = Constants.Design.Font.newYorkRegular.withSize(18)
             passwordTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.password, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
             passwordTextField.isSecureTextEntry = true
@@ -72,6 +76,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
             signInButton.layer.cornerRadius = CGFloat(10)
+            
+            // Drop shadow effect
+            signInButton.layer.shadowOffset = CGSize(width: 0, height: 10)
+            signInButton.layer.shadowRadius = 20
+            signInButton.layer.shadowOpacity = 1
+            
             signInButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(18)
         }
     }
