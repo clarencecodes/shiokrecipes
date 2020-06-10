@@ -69,6 +69,11 @@ struct Constants {
         static let emailOrUsername = "email or username"
         static let password = "password"
         static let signUpGetStartedText = "Sign up\nto get started"
+        static let firstName = "first name"
+        static let lastName = "last name"
+        static let email = "email"
+        static let username = "username"
+        static let confirmPassword = "confirm password"
     }
     
     

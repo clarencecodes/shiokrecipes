@@ -44,19 +44,19 @@ class SignupViewController: UIViewController {
                 var placeholderText = ""
                 switch textField.tag {
                 case 0:
-                    placeholderText = "first name"
+                    placeholderText = Constants.Content.firstName
                 case 1:
-                    placeholderText = "last name"
+                    placeholderText = Constants.Content.lastName
                 case 2:
-                    placeholderText = "email"
+                    placeholderText = Constants.Content.email
                     textField.keyboardType = .emailAddress
                 case 3:
-                    placeholderText = "username"
+                    placeholderText = Constants.Content.username
                 case 4:
-                    placeholderText = "password"
+                    placeholderText = Constants.Content.password
                     textField.isSecureTextEntry = true
                 case 5:
-                    placeholderText = "confirm password"
+                    placeholderText = Constants.Content.confirmPassword
                     textField.isSecureTextEntry = true
                 default:
                     break
