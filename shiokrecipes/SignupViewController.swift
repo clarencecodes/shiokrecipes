@@ -63,7 +63,10 @@ class SignupViewController: UIViewController {
                 }
                 
                 textField.attributedPlaceholder =  NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-                textField.alpha = 0.7
+                textField.alpha = 0.6
+                
+                // Detect any changes within the textField
+                textField.addTarget(self, action: #selector(textFieldDidChange), for: .editingChanged)
             }
         }
     }
@@ -108,6 +111,16 @@ class SignupViewController: UIViewController {
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)
+    }
+    
+    @objc private func textFieldDidChange(textField: UITextField) {
+        guard let text = textField.text else { return }
+        
+        if text.isEmpty {
+            textField.alpha = 0.6
+        } else {
+            textField.alpha = 1
+        }
     }
     
 }
