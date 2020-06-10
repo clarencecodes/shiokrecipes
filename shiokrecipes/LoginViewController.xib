@@ -14,13 +14,14 @@
                 <outlet property="passwordTextField" destination="6qO-oz-KDj" id="zsJ-r1-eYe"/>
                 <outlet property="signInButton" destination="Hg0-T9-eIX" id="fbc-xC-Zeg"/>
                 <outlet property="signUpButton" destination="0HM-3O-eK9" id="A1G-ro-tOW"/>
+                <outlet property="titleLabel" destination="Rob-0W-EDn" id="cA4-uV-4m3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-                <outlet property="welcomeLabel" destination="Rob-0W-EDn" id="cA4-uV-4m3"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i5M-Pr-FkT">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="5fX-tZ-j4j">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
@@ -72,11 +73,14 @@
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0HM-3O-eK9">
-                    <rect key="frame" x="99" y="653" width="216" height="29"/>
+                    <rect key="frame" x="99" y="683" width="216" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="Don't have an account? Sign up">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="signupButtonTapped:" destination="-1" eventType="touchUpInside" id="Mt2-Mk-n35"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -88,7 +92,7 @@
                 <constraint firstItem="Hg0-T9-eIX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GSP-s9-YTg"/>
                 <constraint firstItem="5fX-tZ-j4j" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="LwR-wx-FYZ"/>
                 <constraint firstItem="Ivd-TH-Xri" firstAttribute="top" secondItem="Rob-0W-EDn" secondAttribute="bottom" constant="30" id="N22-8q-p9k"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0HM-3O-eK9" secondAttribute="bottom" constant="180" id="Sb3-pq-MJy"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="0HM-3O-eK9" secondAttribute="bottom" constant="150" id="Sb3-pq-MJy"/>
                 <constraint firstItem="Y14-Me-I3h" firstAttribute="leading" secondItem="6qO-oz-KDj" secondAttribute="leading" id="XOv-2S-eDD"/>
                 <constraint firstItem="Hg0-T9-eIX" firstAttribute="top" secondItem="Y14-Me-I3h" secondAttribute="bottom" constant="30" id="bJD-zT-BhW"/>
                 <constraint firstAttribute="bottom" secondItem="5fX-tZ-j4j" secondAttribute="bottom" id="eBz-lY-K2c"/>

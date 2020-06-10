@@ -10,10 +10,12 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
-    @IBOutlet weak var welcomeLabel: UILabel! {
+    // MARK: - IBOutlets
+    
+    @IBOutlet weak var titleLabel: UILabel! {
         didSet {
-            welcomeLabel.font = Constants.Design.Font.newYorkBold.withSize(24)
-            welcomeLabel.text = Constants.Content.welcomeText
+            titleLabel.font = Constants.Design.Font.newYorkBold.withSize(24)
+            titleLabel.text = Constants.Content.welcomeText
         }
     }
     
@@ -24,7 +26,7 @@ class LoginViewController: UIViewController {
                 let view = UIView()
                 view.translatesAutoresizingMaskIntoConstraints = false
                 view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-                view.backgroundColor = .lightGray
+                view.backgroundColor = .white
                 return view
             }()
             
@@ -36,9 +38,10 @@ class LoginViewController: UIViewController {
             ])
             
             // Set the font and keyboard type for the textfield
-            emailTextField.font = Constants.Design.Font.newYorkRegular.withSize(18)
-            emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.emailOrUsername, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            emailTextField.font = Constants.Design.Font.newYorkMedium.withSize(18)
+            emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.emailOrUsername, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             emailTextField.keyboardType = .emailAddress
+            emailTextField.alpha = 0.6
         }
     }
     
@@ -49,7 +52,7 @@ class LoginViewController: UIViewController {
                 let view = UIView()
                 view.translatesAutoresizingMaskIntoConstraints = false
                 view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-                view.backgroundColor = .lightGray
+                view.backgroundColor = .white
                 return view
             }()
             
@@ -61,9 +64,10 @@ class LoginViewController: UIViewController {
             ])
             
             // Set the font and keyboard type for the textfield
-            passwordTextField.font = Constants.Design.Font.newYorkRegular.withSize(18)
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.password, attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+            passwordTextField.font = Constants.Design.Font.newYorkMedium.withSize(18)
+            passwordTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.password, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             passwordTextField.isSecureTextEntry = true
+            passwordTextField.alpha = 0.6
         }
     }
     
@@ -92,10 +96,21 @@ class LoginViewController: UIViewController {
         }
     }
     
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
     }
+    
+    // MARK: - IBActions
+    
+    @IBAction func signupButtonTapped(_ sender: UIButton) {
+        let vc = SignupViewController(nibName: "SignupViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    // MARK: - Class methods
     
     @objc private func dismissKeyboard() {
         view.endEditing(true)

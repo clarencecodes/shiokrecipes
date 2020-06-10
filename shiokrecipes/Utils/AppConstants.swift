@@ -44,6 +44,15 @@ struct Constants {
                 return UIFont(descriptor: descriptor, size: 0.0)
             }
             
+            static var newYorkMedium: UIFont {
+                let descriptor = UIFont.systemFont(ofSize: 24,
+                                                   weight: .medium).fontDescriptor
+                if let serif = descriptor.withDesign(.serif) {
+                    return UIFont(descriptor: serif, size: 0.0)
+                }
+                return UIFont(descriptor: descriptor, size: 0.0)
+            }
+            
             static var newYorkRegular: UIFont {
                 let descriptor = UIFont.systemFont(ofSize: 24,
                                                    weight: .regular).fontDescriptor
@@ -59,6 +68,7 @@ struct Constants {
         static let welcomeText = "Welcome,\nsign in to continue"
         static let emailOrUsername = "email or username"
         static let password = "password"
+        static let signUpGetStartedText = "Sign up\nto get started"
     }
     
     
