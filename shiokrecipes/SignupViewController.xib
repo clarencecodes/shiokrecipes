@@ -31,7 +31,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPU-df-fr4">
-                    <rect key="frame" x="94.5" y="144" width="225" height="29"/>
+                    <rect key="frame" x="94.5" y="94" width="225" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="FFI-Hu-tc7"/>
                     </constraints>
@@ -40,7 +40,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="r1I-K8-4Vr">
-                    <rect key="frame" x="94.5" y="203" width="225" height="273"/>
+                    <rect key="frame" x="94.5" y="153" width="225" height="273"/>
                     <subviews>
                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="66s-Eh-vCN">
                             <rect key="frame" x="0.0" y="0.0" width="225" height="23"/>
@@ -99,7 +99,7 @@
                     </subviews>
                 </stackView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HJP-lg-NUz">
-                    <rect key="frame" x="94.5" y="506" width="225" height="50"/>
+                    <rect key="frame" x="94.5" y="456" width="225" height="50"/>
                     <color key="backgroundColor" red="0.88195246459999999" green="0.50778025390000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="225" id="GZ6-Dp-R9d"/>
@@ -111,7 +111,7 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking 'Sign up', you agree to our Terms and Conditions &amp; Privacy Policy." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-Zt-BIT">
-                    <rect key="frame" x="93.5" y="586" width="227" height="29"/>
+                    <rect key="frame" x="93.5" y="526" width="227" height="29"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="227" id="PL9-OE-Ooh"/>
                     </constraints>
@@ -120,7 +120,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iXS-J6-oSj">
-                    <rect key="frame" x="93.5" y="683" width="227" height="29"/>
+                    <rect key="frame" x="93.5" y="783" width="227" height="29"/>
                     <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                     <state key="normal" title="Already have an account? Sign in">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -136,14 +136,14 @@
                 <constraint firstItem="iXS-J6-oSj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="G5G-42-VyH"/>
                 <constraint firstItem="GPU-df-fr4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="JXu-rX-Pbf"/>
                 <constraint firstItem="HJP-lg-NUz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Pqt-Gl-8j2"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iXS-J6-oSj" secondAttribute="bottom" constant="150" id="T6K-iP-2ol"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iXS-J6-oSj" secondAttribute="bottom" constant="50" id="T6K-iP-2ol"/>
                 <constraint firstItem="ih2-hj-NiP" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="WqN-bD-XmZ"/>
-                <constraint firstItem="aGh-Zt-BIT" firstAttribute="top" secondItem="HJP-lg-NUz" secondAttribute="bottom" constant="30" id="bBr-tW-IGR"/>
+                <constraint firstItem="aGh-Zt-BIT" firstAttribute="top" secondItem="HJP-lg-NUz" secondAttribute="bottom" constant="20" id="bBr-tW-IGR"/>
                 <constraint firstAttribute="top" secondItem="ih2-hj-NiP" secondAttribute="top" id="fDK-zI-vJy"/>
                 <constraint firstItem="r1I-K8-4Vr" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="huc-iT-oDm"/>
                 <constraint firstItem="HJP-lg-NUz" firstAttribute="top" secondItem="r1I-K8-4Vr" secondAttribute="bottom" constant="30" id="jfx-cj-aFf"/>
                 <constraint firstAttribute="trailing" secondItem="ih2-hj-NiP" secondAttribute="trailing" id="nrQ-Kr-foX"/>
-                <constraint firstItem="GPU-df-fr4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="100" id="pV4-DQ-JRo"/>
+                <constraint firstItem="GPU-df-fr4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="pV4-DQ-JRo"/>
                 <constraint firstItem="ih2-hj-NiP" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="s27-lq-zZs"/>
                 <constraint firstItem="aGh-Zt-BIT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xYP-LH-SeS"/>
             </constraints>
