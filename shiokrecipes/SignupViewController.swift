@@ -103,7 +103,7 @@ class SignupViewController: UIViewController {
     
     // MARK: - IBActions
 
-    @IBAction func signInButtonTapped(_ sender: UIButton) {
+    @IBAction func navigateBackToSignInScreen(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     

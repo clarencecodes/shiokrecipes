@@ -30,6 +30,18 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="wallpaper" translatesAutoresizingMaskIntoConstraints="NO" id="ih2-hj-NiP">
                     <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KTm-pu-v2o" userLabel="Back Button">
+                    <rect key="frame" x="10" y="44" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="6lS-I7-Uly"/>
+                        <constraint firstAttribute="width" constant="44" id="TTx-bQ-V6u"/>
+                    </constraints>
+                    <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <state key="normal" image="chevron.left" catalog="system"/>
+                    <connections>
+                        <action selector="navigateBackToSignInScreen:" destination="-1" eventType="touchUpInside" id="GAA-7J-Dr5"/>
+                    </connections>
+                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign up to get started" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GPU-df-fr4">
                     <rect key="frame" x="94.5" y="94" width="225" height="29"/>
                     <constraints>
@@ -126,12 +138,14 @@
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                     <connections>
-                        <action selector="signInButtonTapped:" destination="-1" eventType="touchUpInside" id="O33-jh-J41"/>
+                        <action selector="navigateBackToSignInScreen:" destination="-1" eventType="touchUpInside" id="O33-jh-J41"/>
                     </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
             <constraints>
+                <constraint firstItem="KTm-pu-v2o" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="7Cd-Wc-9xf"/>
+                <constraint firstItem="KTm-pu-v2o" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Dwx-7M-dUf"/>
                 <constraint firstItem="r1I-K8-4Vr" firstAttribute="top" secondItem="GPU-df-fr4" secondAttribute="bottom" constant="30" id="FJi-y0-jZ7"/>
                 <constraint firstItem="iXS-J6-oSj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="G5G-42-VyH"/>
                 <constraint firstItem="GPU-df-fr4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="JXu-rX-Pbf"/>
@@ -152,6 +166,7 @@
         </view>
     </objects>
     <resources>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="wallpaper" width="541" height="812"/>
     </resources>
 </document>
