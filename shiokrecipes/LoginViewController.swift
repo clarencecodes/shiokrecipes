@@ -19,58 +19,46 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var emailTextField: UITextField! {
+    @IBOutlet var textFields: [UITextField]! {
         didSet {
-            // Add line to bottom of textfield
-            let line: UIView = {
-                let view = UIView()
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-                view.backgroundColor = .white
-                return view
-            }()
-            
-            emailTextField.addSubview(line)
-            NSLayoutConstraint.activate([
-                line.bottomAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 5),
-                line.leftAnchor.constraint(equalTo: emailTextField.leftAnchor),
-                line.rightAnchor.constraint(equalTo: emailTextField.rightAnchor)
-            ])
-            
-            // Set the font and keyboard type for the textfield
-            emailTextField.font = Constants.Design.Font.newYorkMedium.withSize(18)
-            emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.emailOrUsername, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            emailTextField.keyboardType = .emailAddress
-            emailTextField.alpha = 0.6
+            for textField in textFields {
+                // Add line to bottom of textfield
+                let line: UIView = {
+                    let view = UIView()
+                    view.translatesAutoresizingMaskIntoConstraints = false
+                    view.heightAnchor.constraint(equalToConstant: 1).isActive = true
+                    view.backgroundColor = .white
+                    return view
+                }()
+                
+                textField.addSubview(line)
+                NSLayoutConstraint.activate([
+                    line.bottomAnchor.constraint(equalTo: textField.bottomAnchor, constant: 7),
+                    line.leftAnchor.constraint(equalTo: textField.leftAnchor),
+                    line.rightAnchor.constraint(equalTo: textField.rightAnchor)
+                ])
+                
+                // Set the font and keyboard type for the textfield
+                textField.font = Constants.Design.Font.newYorkMedium.withSize(18)
+                
+                var placeholderText = ""
+                switch textField.tag {
+                case 0:
+                    placeholderText = Constants.Content.emailOrUsername
+                    textField.keyboardType = .emailAddress
+                case 1:
+                    placeholderText = Constants.Content.password
+                    textField.isSecureTextEntry = true
+                default:
+                    break
+                }
+                
+                textField.attributedPlaceholder = NSAttributedString(string: placeholderText, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+                textField.alpha = 0.6
+            }
         }
     }
-    
-    @IBOutlet weak var passwordTextField: UITextField! {
-        didSet {
-            // Add line to bottom of textfield
-            let line: UIView = {
-                let view = UIView()
-                view.translatesAutoresizingMaskIntoConstraints = false
-                view.heightAnchor.constraint(equalToConstant: 1).isActive = true
-                view.backgroundColor = .white
-                return view
-            }()
-            
-            passwordTextField.addSubview(line)
-            NSLayoutConstraint.activate([
-                line.bottomAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 5),
-                line.leftAnchor.constraint(equalTo: passwordTextField.leftAnchor),
-                line.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor)
-            ])
-            
-            // Set the font and keyboard type for the textfield
-            passwordTextField.font = Constants.Design.Font.newYorkMedium.withSize(18)
-            passwordTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.password, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
-            passwordTextField.isSecureTextEntry = true
-            passwordTextField.alpha = 0.6
-        }
-    }
-    
+        
     @IBOutlet weak var forgotPasswordButton: UIButton! {
         didSet {
             forgotPasswordButton.titleLabel?.font = Constants.Design.Font.newYorkSemibold.withSize(13)
