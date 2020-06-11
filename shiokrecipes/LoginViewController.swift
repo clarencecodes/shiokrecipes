@@ -104,8 +104,7 @@ class LoginViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         let tabbarController = UITabBarController()
         
-        // TODO: replace `tabbarController.viewControllers` with correct screens
-        let vc = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+        let vc = RecipeViewController(nibName: "RecipeViewController", bundle: nil)
         
         tabbarController.viewControllers = [vc]
         self.navigationController?.viewControllers = [tabbarController]
