@@ -74,6 +74,8 @@ struct Constants {
         static let email = "email"
         static let username = "username"
         static let confirmPassword = "confirm password"
+        static let forgotPasswordTitle1 = "Forgot your password?"
+        static let forgotPasswordTitle2 = "Enter your email address to continue"
     }
     
     

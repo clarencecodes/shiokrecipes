@@ -96,6 +96,11 @@ class LoginViewController: UIViewController {
     
     // MARK: - IBActions
     
+    @IBAction func forgotPasswordButtonTapped(_ sender: UIButton) {
+        let vc = ForgotPasswordViewController(nibName: "ForgotPasswordViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
+    
     @IBAction func signupButtonTapped(_ sender: UIButton) {
         let vc = SignupViewController(nibName: "SignupViewController", bundle: nil)
         self.navigationController?.pushViewController(vc, animated: true)

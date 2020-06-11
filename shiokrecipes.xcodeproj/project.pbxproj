@@ -18,6 +18,8 @@
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
 		11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11865DA624911F5300FC3743 /* SignupViewController.xib */; };
+		11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */; };
+		11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */; };
 		AE44E1AD39AE123B8F65D19E /* Pods_shiokrecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84682D886E72A098AD60868 /* Pods_shiokrecipes.framework */; };
 /* End PBXBuildFile section */
 
@@ -35,6 +37,8 @@
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		11865DA624911F5300FC3743 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		6D8DE83C821659895733DE1C /* Pods-shiokrecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiokrecipes.release.xcconfig"; path = "Target Support Files/Pods-shiokrecipes/Pods-shiokrecipes.release.xcconfig"; sourceTree = "<group>"; };
 		D84682D886E72A098AD60868 /* Pods_shiokrecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiokrecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95A418BAAF66E4EB4EAB9D6 /* Pods-shiokrecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiokrecipes.debug.xcconfig"; path = "Target Support Files/Pods-shiokrecipes/Pods-shiokrecipes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 				112AA0252490CB4600A4D822 /* LoginViewController.xib */,
 				11865DA524911F5300FC3743 /* SignupViewController.swift */,
 				11865DA624911F5300FC3743 /* SignupViewController.xib */,
+				11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */,
+				11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */,
 				11865DA22490F48100FC3743 /* Utils */,
 			);
 			path = shiokrecipes;
@@ -173,6 +179,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */,
 				112AA0272490CB4700A4D822 /* LoginViewController.xib in Resources */,
 				11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */,
 				112AA01D2490BACE00A4D822 /* LaunchScreen.storyboard in Resources */,
@@ -214,6 +221,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */,
+				11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */,
 				112AA0262490CB4700A4D822 /* LoginViewController.swift in Sources */,
 				112AA0152490BACD00A4D822 /* ViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
