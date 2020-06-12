@@ -58,12 +58,7 @@ class TabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item == settingsTabBarItem {
             // TODO: present the SettingsViewController instead.
-            let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let navigationController = UINavigationController(rootViewController: loginVc)
-            navigationController.isNavigationBarHidden = true
-            navigationController.isToolbarHidden = true
-            UIApplication.shared.windows.first?.rootViewController = navigationController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            Helper.shared.logout()
         }
     }
     

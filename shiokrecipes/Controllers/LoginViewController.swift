@@ -102,9 +102,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        let tabbarController = TabBarController()
-        self.navigationController?.viewControllers = [tabbarController]
-        self.navigationController?.popToRootViewController(animated: true)
+        Helper.shared.login()
     }
     
     @IBAction func navigateToSignupScreen(_ sender: UIButton) {
