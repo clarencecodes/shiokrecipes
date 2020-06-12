@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0102490BACD00A4D822 /* AppDelegate.swift */; };
 		112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0122490BACD00A4D822 /* SceneDelegate.swift */; };
-		112AA0152490BACD00A4D822 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0142490BACD00A4D822 /* ViewController.swift */; };
 		112AA0182490BACD00A4D822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112AA0162490BACD00A4D822 /* Main.storyboard */; };
 		112AA01A2490BACE00A4D822 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 112AA0192490BACE00A4D822 /* Assets.xcassets */; };
 		112AA01D2490BACE00A4D822 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112AA01B2490BACE00A4D822 /* LaunchScreen.storyboard */; };
@@ -33,7 +32,6 @@
 		112AA00D2490BACD00A4D822 /* shiokrecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiokrecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112AA0102490BACD00A4D822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112AA0122490BACD00A4D822 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		112AA0142490BACD00A4D822 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		112AA0172490BACD00A4D822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		112AA0192490BACE00A4D822 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		112AA01C2490BACE00A4D822 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -89,28 +87,51 @@
 		112AA00F2490BACD00A4D822 /* shiokrecipes */ = {
 			isa = PBXGroup;
 			children = (
-				112AA0102490BACD00A4D822 /* AppDelegate.swift */,
-				112AA0122490BACD00A4D822 /* SceneDelegate.swift */,
-				112AA0142490BACD00A4D822 /* ViewController.swift */,
-				112AA0162490BACD00A4D822 /* Main.storyboard */,
+				1130EFFD249369B9007B5290 /* Views */,
+				1130EFFE249369ED007B5290 /* Controllers */,
+				11865DA22490F48100FC3743 /* Utils */,
+				1130EFFF24936A53007B5290 /* Startup */,
 				112AA0192490BACE00A4D822 /* Assets.xcassets */,
-				112AA01B2490BACE00A4D822 /* LaunchScreen.storyboard */,
 				112AA01E2490BACE00A4D822 /* Info.plist */,
-				112AA0242490CB4600A4D822 /* LoginViewController.swift */,
+			);
+			path = shiokrecipes;
+			sourceTree = "<group>";
+		};
+		1130EFFD249369B9007B5290 /* Views */ = {
+			isa = PBXGroup;
+			children = (
 				112AA0252490CB4600A4D822 /* LoginViewController.xib */,
-				11865DA524911F5300FC3743 /* SignupViewController.swift */,
 				11865DA624911F5300FC3743 /* SignupViewController.xib */,
-				11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */,
 				11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */,
-				11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */,
 				11DA96002492390D00FF6C19 /* RecipeViewController.xib */,
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1130EFFE249369ED007B5290 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				112AA0242490CB4600A4D822 /* LoginViewController.swift */,
+				11865DA524911F5300FC3743 /* SignupViewController.swift */,
+				11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */,
+				11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */,
 				1130EFF724935F3A007B5290 /* ExploreViewController.swift */,
 				1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */,
 				1130EFFB24936096007B5290 /* FavoritesViewController.swift */,
-				11865DA22490F48100FC3743 /* Utils */,
 			);
-			path = shiokrecipes;
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		1130EFFF24936A53007B5290 /* Startup */ = {
+			isa = PBXGroup;
+			children = (
+				112AA0102490BACD00A4D822 /* AppDelegate.swift */,
+				112AA0122490BACD00A4D822 /* SceneDelegate.swift */,
+				112AA0162490BACD00A4D822 /* Main.storyboard */,
+				112AA01B2490BACE00A4D822 /* LaunchScreen.storyboard */,
+			);
+			path = Startup;
 			sourceTree = "<group>";
 		};
 		11865DA22490F48100FC3743 /* Utils */ = {
@@ -245,7 +266,6 @@
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
 				11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */,
 				112AA0262490CB4700A4D822 /* LoginViewController.swift in Sources */,
-				112AA0152490BACD00A4D822 /* ViewController.swift in Sources */,
 				11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
 				112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */,
