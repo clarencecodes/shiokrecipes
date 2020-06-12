@@ -16,7 +16,6 @@ class RecipeViewController: UIViewController {
         didSet {
             titleLabel.font = Constants.Design.Font.newYorkBold.withSize(36)
             titleLabel.textColor = .white
-            titleLabel.text = "Explore"
         }
     }
     @IBOutlet weak var collectionView: UICollectionView! {

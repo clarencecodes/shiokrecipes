@@ -13,7 +13,9 @@ import UIKit
 struct Constants {
     struct Design {
         struct Color {
-            
+            static let orange = UIColor(red: 223/255, green: 129/255, blue: 30/255, alpha: 1)
+            static let mustard = UIColor(red: 223/255, green: 178/255, blue: 30/255, alpha: 1)
+            static let red = UIColor(red: 223/255, green: 81/255, blue: 30/255, alpha: 1)
         }
         
         struct Image {

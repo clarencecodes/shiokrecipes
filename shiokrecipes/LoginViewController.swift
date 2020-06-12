@@ -104,9 +104,28 @@ class LoginViewController: UIViewController {
     @IBAction func signInButtonTapped(_ sender: UIButton) {
         let tabbarController = UITabBarController()
         
-        let vc = RecipeViewController(nibName: "RecipeViewController", bundle: nil)
+        let exploreTabBarItem = UITabBarItem()
+        exploreTabBarItem.title = "Explore"
+        exploreTabBarItem.image = UIImage(systemName: "magnifyingglass")
         
-        tabbarController.viewControllers = [vc]
+        let exploreVc = ExploreViewController()
+        exploreVc.tabBarItem = exploreTabBarItem
+        
+        let myRecipesTabBarItem = UITabBarItem()
+        myRecipesTabBarItem.title = "My Recipes"
+        myRecipesTabBarItem.image = UIImage(systemName: "doc.plaintext")
+        
+        let myRecipesVc = MyRecipesViewController()
+        myRecipesVc.tabBarItem = myRecipesTabBarItem
+        
+        let favoritesTabBarItem = UITabBarItem()
+        favoritesTabBarItem.title = "Favorites"
+        favoritesTabBarItem.image = UIImage(systemName: "heart")
+        
+        let favoritesVc = FavoritesViewController()
+        favoritesVc.tabBarItem = favoritesTabBarItem
+        
+        tabbarController.viewControllers = [exploreVc, myRecipesVc, favoritesVc]
         self.navigationController?.viewControllers = [tabbarController]
         self.navigationController?.popToRootViewController(animated: true)
         
