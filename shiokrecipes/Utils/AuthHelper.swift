@@ -13,22 +13,21 @@ class AuthHelper {
     static let shared = AuthHelper()
     
     func login(email: String, password: String) {
-        guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
-        let navigationController = keyWindow.rootViewController as? UINavigationController else { return }
         
         Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
-            
             if error != nil {
-                let alert = UIAlertController(title: "Oops!", message: error!.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                navigationController.present(alert, animated: true, completion: nil)
+                Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 return
             }
             
-            let tabbarController = TabBarController()
-            navigationController.viewControllers = [tabbarController]
-            navigationController.popToRootViewController(animated: true)
+            if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
+            let navigationController = keyWindow.rootViewController as? UINavigationController {
+                let tabbarController = TabBarController()
+                navigationController.viewControllers = [tabbarController]
+                navigationController.popToRootViewController(animated: true)
+            }
         }
+        
     }
     
     func logout() {
@@ -50,6 +49,24 @@ class AuthHelper {
             
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+        }
+    }
+    
+    func signup(firstName: String, lastName: String, email: String, username: String, password: String) {
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let user = authResult?.user, error == nil else {
+                Helper.app.showMessagePrompt(message: error!.localizedDescription)
+                return
+            }
+            
+            print("\(user.email!) created")
+            
+            if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
+            let navigationController = keyWindow.rootViewController as? UINavigationController {
+                let tabbarController = TabBarController()
+                navigationController.viewControllers = [tabbarController]
+                navigationController.popToRootViewController(animated: true)
+            }
         }
     }
     

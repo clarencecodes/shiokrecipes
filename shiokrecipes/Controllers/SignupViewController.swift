@@ -116,29 +116,17 @@ class SignupViewController: UIViewController {
         // check that password == confirm password
         
         guard let email = textFields[2].text, !email.isEmpty else {
-            let alert = UIAlertController(title: "Oops!", message: "Email can't be empty.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            Helper.app.showMessagePrompt(message: "Email can't be empty.")
             return
         }
         
         guard let password = textFields[4].text, !password.isEmpty else {
-            let alert = UIAlertController(title: "Oops!", message: "Password can't be empty.", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            Helper.app.showMessagePrompt(message: "Password can't be empty.")
             return
         }
         
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
-            guard let user = authResult?.user, error == nil else {
-                let alert = UIAlertController(title: "Oops!", message: error!.localizedDescription, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
-                return
-            }
-            print("\(user.email!) created")
-//            AuthHelper.shared.login()
-        }
+        AuthHelper.shared.signup(firstName: "", lastName: "", email: email, username: "", password: password)
+        
     }
     
     // MARK: - Class methods
@@ -156,5 +144,9 @@ class SignupViewController: UIViewController {
             textField.alpha = 1
         }
     }
+    
+    // MARK: - Validation
+    
+    
     
 }

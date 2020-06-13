@@ -24,6 +24,7 @@
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
 		11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11865DA624911F5300FC3743 /* SignupViewController.xib */; };
+		11B5B658249521800095016A /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11B5B657249521800095016A /* Helper.swift */; };
 		11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */; };
 		11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */; };
 		11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */; };
@@ -51,6 +52,7 @@
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		11865DA624911F5300FC3743 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		11B5B657249521800095016A /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 			children = (
 				11865DA32490F49500FC3743 /* AppConstants.swift */,
 				111ABF7A24937F9B007A2261 /* AuthHelper.swift */,
+				11B5B657249521800095016A /* Helper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -289,6 +292,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1130EFF624924322007B5290 /* RecipeCollectionViewCell.swift in Sources */,
+				11B5B658249521800095016A /* Helper.swift in Sources */,
 				11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */,
 				1130EFF824935F3A007B5290 /* ExploreViewController.swift in Sources */,
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
