@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SignupViewController: UIViewController {
 
@@ -105,6 +106,39 @@ class SignupViewController: UIViewController {
 
     @IBAction func navigateBackToSignInScreen(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func signupButtonTapped(_ sender: UIButton) {
+        
+        // TODO: refactor this
+        // do proper validation for all fields
+        // after creating user, store the first name, last name, username into the DB
+        // check that password == confirm password
+        
+        guard let email = textFields[2].text, !email.isEmpty else {
+            let alert = UIAlertController(title: "Oops!", message: "Email can't be empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let password = textFields[4].text, !password.isEmpty else {
+            let alert = UIAlertController(title: "Oops!", message: "Password can't be empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+            guard let user = authResult?.user, error == nil else {
+                let alert = UIAlertController(title: "Oops!", message: error!.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+            }
+            print("\(user.email!) created")
+            Helper.shared.login()
+        }
     }
     
     // MARK: - Class methods
