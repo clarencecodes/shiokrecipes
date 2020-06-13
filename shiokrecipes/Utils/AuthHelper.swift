@@ -34,12 +34,7 @@ class AuthHelper {
                 print("User has signed out successfully.")
             }
             
-            let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-            let navigationController = UINavigationController(rootViewController: loginVc)
-            navigationController.isNavigationBarHidden = true
-            navigationController.isToolbarHidden = true
-            UIApplication.shared.windows.first?.rootViewController = navigationController
-            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            navigateToLoginScreen()
             
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
@@ -65,6 +60,15 @@ class AuthHelper {
             navigationController.viewControllers = [tabbarController]
             navigationController.popToRootViewController(animated: true)
         }
+    }
+    
+    private func navigateToLoginScreen() {
+        let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: loginVc)
+        navigationController.isNavigationBarHidden = true
+        navigationController.isToolbarHidden = true
+        UIApplication.shared.windows.first?.rootViewController = navigationController
+        UIApplication.shared.windows.first?.makeKeyAndVisible()
     }
     
 }
