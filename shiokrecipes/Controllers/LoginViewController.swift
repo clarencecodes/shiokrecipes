@@ -102,7 +102,23 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func signInButtonTapped(_ sender: UIButton) {
-        Helper.shared.login()
+        
+        // TODO: refactor this
+        guard let email = textFields[0].text, !email.isEmpty else {
+            let alert = UIAlertController(title: "Oops!", message: "Email can't be empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        guard let password = textFields[1].text, !password.isEmpty else {
+            let alert = UIAlertController(title: "Oops!", message: "Password can't be empty.", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+            return
+        }
+        
+        Helper.shared.login(email: email, password: password)
     }
     
     @IBAction func navigateToSignupScreen(_ sender: UIButton) {

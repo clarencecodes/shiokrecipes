@@ -137,7 +137,7 @@ class SignupViewController: UIViewController {
                 return
             }
             print("\(user.email!) created")
-            Helper.shared.login()
+//            Helper.shared.login()
         }
     }
     

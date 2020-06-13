@@ -7,17 +7,28 @@
 //
 
 import UIKit
+import Firebase
 
 class Helper {
     static let shared = Helper()
     
-    func login() {
+    func login(email: String, password: String) {
         guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
-            let navigationController = keyWindow.rootViewController as? UINavigationController else { return }
+        let navigationController = keyWindow.rootViewController as? UINavigationController else { return }
         
-        let tabbarController = TabBarController()
-        navigationController.viewControllers = [tabbarController]
-        navigationController.popToRootViewController(animated: true)
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+            
+            if error != nil {
+                let alert = UIAlertController(title: "Oops!", message: error!.localizedDescription, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                navigationController.present(alert, animated: true, completion: nil)
+                return
+            }
+            
+            let tabbarController = TabBarController()
+            navigationController.viewControllers = [tabbarController]
+            navigationController.popToRootViewController(animated: true)
+        }
     }
     
     func logout() {
