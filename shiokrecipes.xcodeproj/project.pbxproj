@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		111ABF7B24937F9B007A2261 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111ABF7A24937F9B007A2261 /* Helper.swift */; };
+		111ABF7B24937F9B007A2261 /* AuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 111ABF7A24937F9B007A2261 /* AuthHelper.swift */; };
 		112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0102490BACD00A4D822 /* AppDelegate.swift */; };
 		112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0122490BACD00A4D822 /* SceneDelegate.swift */; };
 		112AA0182490BACD00A4D822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112AA0162490BACD00A4D822 /* Main.storyboard */; };
@@ -32,7 +32,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		111ABF7A24937F9B007A2261 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		111ABF7A24937F9B007A2261 /* AuthHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHelper.swift; sourceTree = "<group>"; };
 		112AA00D2490BACD00A4D822 /* shiokrecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiokrecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112AA0102490BACD00A4D822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112AA0122490BACD00A4D822 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -146,7 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				11865DA32490F49500FC3743 /* AppConstants.swift */,
-				111ABF7A24937F9B007A2261 /* Helper.swift */,
+				111ABF7A24937F9B007A2261 /* AuthHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -298,7 +298,7 @@
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
 				112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */,
 				1130F005249371DC007B5290 /* TabBarController.swift in Sources */,
-				111ABF7B24937F9B007A2261 /* Helper.swift in Sources */,
+				111ABF7B24937F9B007A2261 /* AuthHelper.swift in Sources */,
 				1130EFFC24936096007B5290 /* FavoritesViewController.swift in Sources */,
 				11865DA42490F49500FC3743 /* AppConstants.swift in Sources */,
 			);

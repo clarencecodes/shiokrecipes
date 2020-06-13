@@ -1,5 +1,5 @@
 //
-//  Helper.swift
+//  AuthHelper.swift
 //  shiokrecipes
 //
 //  Created by Clarence Chan on 12/6/20.
@@ -9,8 +9,8 @@
 import UIKit
 import Firebase
 
-class Helper {
-    static let shared = Helper()
+class AuthHelper {
+    static let shared = AuthHelper()
     
     func login(email: String, password: String) {
         guard let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
@@ -50,7 +50,7 @@ class Helper {
             
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
-        }    
+        }
     }
     
 }

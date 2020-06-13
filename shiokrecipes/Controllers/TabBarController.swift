@@ -58,7 +58,7 @@ class TabBarController: UITabBarController {
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item == settingsTabBarItem {
             // TODO: present the SettingsViewController instead.
-            Helper.shared.logout()
+            AuthHelper.shared.logout()
         }
     }
     

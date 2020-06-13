@@ -118,7 +118,7 @@ class LoginViewController: UIViewController {
             return
         }
         
-        Helper.shared.login(email: email, password: password)
+        AuthHelper.shared.login(email: email, password: password)
     }
     
     @IBAction func navigateToSignupScreen(_ sender: UIButton) {
