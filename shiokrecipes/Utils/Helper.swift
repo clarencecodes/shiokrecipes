@@ -14,6 +14,6 @@ class Helper {
     func showMessagePrompt(message: String) {
         let alert = UIAlertController(title: "Message", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        UIApplication.shared.windows.first?.rootViewController?.present(alert, animated: true, completion: nil)
+        UIApplication.shared.windows.first(where: { $0.isKeyWindow })?.rootViewController?.present(alert, animated: true, completion: nil)
     }
 }

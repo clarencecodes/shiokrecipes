@@ -115,13 +115,33 @@ class SignupViewController: UIViewController {
         // after creating user, store the first name, last name, username into the DB
         // check that password == confirm password
         
+        guard let firstName = textFields[0].text, !firstName.isEmpty else {
+            Helper.app.showMessagePrompt(message: "First name can't be empty.")
+            return
+        }
+        
+        guard let lastName = textFields[1].text, !lastName.isEmpty else {
+            Helper.app.showMessagePrompt(message: "Last name can't be empty.")
+            return
+        }
+        
         guard let email = textFields[2].text, !email.isEmpty else {
             Helper.app.showMessagePrompt(message: "Email can't be empty.")
             return
         }
         
+        guard let username = textFields[3].text, !username.isEmpty else {
+            Helper.app.showMessagePrompt(message: "Username can't be empty.")
+            return
+        }
+        
         guard let password = textFields[4].text, !password.isEmpty else {
             Helper.app.showMessagePrompt(message: "Password can't be empty.")
+            return
+        }
+        
+        guard let confirmPassword = textFields[5].text, password == confirmPassword else {
+            Helper.app.showMessagePrompt(message: "Password and confirm password must match.")
             return
         }
         
