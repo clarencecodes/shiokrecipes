@@ -19,13 +19,7 @@ class AuthHelper {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 return
             }
-            
-            if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
-            let navigationController = keyWindow.rootViewController as? UINavigationController {
-                let tabbarController = TabBarController()
-                navigationController.viewControllers = [tabbarController]
-                navigationController.popToRootViewController(animated: true)
-            }
+            self.navigateToExploreScreen()
         }
         
     }
@@ -60,13 +54,16 @@ class AuthHelper {
             }
             
             print("\(user.email!) created")
-            
-            if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
-            let navigationController = keyWindow.rootViewController as? UINavigationController {
-                let tabbarController = TabBarController()
-                navigationController.viewControllers = [tabbarController]
-                navigationController.popToRootViewController(animated: true)
-            }
+            self.navigateToExploreScreen()
+        }
+    }
+    
+    private func navigateToExploreScreen() {
+        if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
+        let navigationController = keyWindow.rootViewController as? UINavigationController {
+            let tabbarController = TabBarController()
+            navigationController.viewControllers = [tabbarController]
+            navigationController.popToRootViewController(animated: true)
         }
     }
     
