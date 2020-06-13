@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -20,7 +20,7 @@
 		1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */; };
 		1130EFFC24936096007B5290 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130EFFB24936096007B5290 /* FavoritesViewController.swift */; };
 		1130F005249371DC007B5290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130F004249371DC007B5290 /* TabBarController.swift */; };
-		117C4E6F2494A82500E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E6E2494A82400E97466 /* GoogleService-Info.plist */; };
+		117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E722494B01D00E97466 /* GoogleService-Info.plist */; };
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
 		11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11865DA624911F5300FC3743 /* SignupViewController.xib */; };
@@ -47,7 +47,7 @@
 		1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		1130EFFB24936096007B5290 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1130F004249371DC007B5290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		117C4E6E2494A82400E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		117C4E722494B01D00E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		11865DA624911F5300FC3743 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
@@ -99,7 +99,7 @@
 				1130EFFF24936A53007B5290 /* Startup */,
 				112AA0192490BACE00A4D822 /* Assets.xcassets */,
 				112AA01E2490BACE00A4D822 /* Info.plist */,
-				117C4E6E2494A82400E97466 /* GoogleService-Info.plist */,
+				117C4E722494B01D00E97466 /* GoogleService-Info.plist */,
 			);
 			path = shiokrecipes;
 			sourceTree = "<group>";
@@ -229,7 +229,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */,
-				117C4E6F2494A82500E97466 /* GoogleService-Info.plist in Resources */,
+				117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */,
 				112AA0272490CB4700A4D822 /* LoginViewController.xib in Resources */,
 				11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */,
 				112AA01D2490BACE00A4D822 /* LaunchScreen.storyboard in Resources */,
