@@ -32,11 +32,25 @@ class Helper {
     }
     
     func logout() {
-        let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        let navigationController = UINavigationController(rootViewController: loginVc)
-        navigationController.isNavigationBarHidden = true
-        navigationController.isToolbarHidden = true
-        UIApplication.shared.windows.first?.rootViewController = navigationController
-        UIApplication.shared.windows.first?.makeKeyAndVisible()
+        let firebaseAuth = Auth.auth()
+        do {
+            
+            try firebaseAuth.signOut()
+            
+            if firebaseAuth.currentUser == nil {
+                print("User has signed out successfully.")
+            }
+            
+            let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            let navigationController = UINavigationController(rootViewController: loginVc)
+            navigationController.isNavigationBarHidden = true
+            navigationController.isToolbarHidden = true
+            UIApplication.shared.windows.first?.rootViewController = navigationController
+            UIApplication.shared.windows.first?.makeKeyAndVisible()
+            
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }    
     }
+    
 }
