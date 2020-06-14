@@ -145,7 +145,12 @@ class SignupViewController: UIViewController {
             return
         }
         
-        AuthHelper.shared.signup(firstName: "", lastName: "", email: email, username: "", password: password)
+        AuthHelper.shared.signup(
+            firstName: firstName,
+            lastName: lastName,
+            email: email, username:
+            username, password: password
+        )
         
     }
     

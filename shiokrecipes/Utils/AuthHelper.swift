@@ -53,7 +53,21 @@ class AuthHelper {
             }
             
             print("\(user.email!) created")
-            self.navigateToExploreScreen()
+            
+            let db = Firestore.firestore()
+            db.collection("users").document(user.uid).setData([
+                "first_name": firstName,
+                "last_name": lastName,
+                "username": username
+            ]) { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                } else {
+                    print("Document added with ID: \(user.uid)")
+                    self.navigateToExploreScreen()
+                }
+            }
+            
         }
     }
     
