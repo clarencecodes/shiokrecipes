@@ -14,7 +14,9 @@ class AuthHelper {
     
     func login(email: String, password: String) {
         
-        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
+        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
+            guard let self = self else { return }
+            
             if error != nil {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 return
@@ -42,7 +44,9 @@ class AuthHelper {
     }
     
     func signup(firstName: String, lastName: String, email: String, username: String, password: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (authResult, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+            guard let self = self else { return }
+            
             guard let user = authResult?.user, error == nil else {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 return
