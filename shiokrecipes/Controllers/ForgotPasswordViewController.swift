@@ -77,6 +77,7 @@ class ForgotPasswordViewController: UIViewController {
     // MARK: - IBActions
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
+        
         guard let email = emailTextField.text, !email.isEmpty else {
             return
         }
@@ -97,7 +98,6 @@ class ForgotPasswordViewController: UIViewController {
             }
         }
         
-        print("nextButtonTapped")
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
