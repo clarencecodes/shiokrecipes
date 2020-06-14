@@ -21,6 +21,8 @@ class AuthHelper {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 return
             }
+            
+            print("\(email) has signed in successfully.")
             self.navigateToExploreScreen()
         }
         
