@@ -66,7 +66,8 @@ struct Constants {
         }
     }
     
-    struct Content {
+    struct Strings {
+        // Login & Signup screens
         static let welcomeText = "Welcome,\nsign in to continue"
         static let emailOrUsername = "email or username"
         static let password = "password"
@@ -78,6 +79,14 @@ struct Constants {
         static let confirmPassword = "confirm password"
         static let forgotPasswordTitle1 = "Forgot your password?"
         static let forgotPasswordTitle2 = "Enter your email address to continue"
+        static let emailEmpty = "Email can't be empty."
+        static let passwordEmpty = "Password can't be empty."
+        static let firstNameEmpty = "First name can't be empty."
+        static let lastNameEmpty = "Last name can't be empty."
+        static let usernameEmpty = "Username can't be empty."
+        static let confirmPasswordMustMatchPassword = "Password and confirm password must match."
+        static let resetPassword = "Reset Password"
+        static let checkEmailToResetPassword = "Please check your email for a link to reset your password. :)"
     }
     
     

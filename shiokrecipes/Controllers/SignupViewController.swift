@@ -16,7 +16,7 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.font = Constants.Design.Font.newYorkBold.withSize(24)
-            titleLabel.text = Constants.Content.signUpGetStartedText
+            titleLabel.text = Constants.Strings.signUpGetStartedText
         }
     }
     
@@ -45,19 +45,19 @@ class SignupViewController: UIViewController {
                 var placeholderText = ""
                 switch textField.tag {
                 case 0:
-                    placeholderText = Constants.Content.firstName
+                    placeholderText = Constants.Strings.firstName
                 case 1:
-                    placeholderText = Constants.Content.lastName
+                    placeholderText = Constants.Strings.lastName
                 case 2:
-                    placeholderText = Constants.Content.email
+                    placeholderText = Constants.Strings.email
                     textField.keyboardType = .emailAddress
                 case 3:
-                    placeholderText = Constants.Content.username
+                    placeholderText = Constants.Strings.username
                 case 4:
-                    placeholderText = Constants.Content.password
+                    placeholderText = Constants.Strings.password
                     textField.isSecureTextEntry = true
                 case 5:
-                    placeholderText = Constants.Content.confirmPassword
+                    placeholderText = Constants.Strings.confirmPassword
                     textField.isSecureTextEntry = true
                 default:
                     break
@@ -116,32 +116,32 @@ class SignupViewController: UIViewController {
         // check that password == confirm password
         
         guard let firstName = textFields[0].text, !firstName.isEmpty else {
-            Helper.app.showMessagePrompt(message: "First name can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.firstNameEmpty)
             return
         }
         
         guard let lastName = textFields[1].text, !lastName.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Last name can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.lastNameEmpty)
             return
         }
         
         guard let email = textFields[2].text, !email.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Email can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.emailEmpty)
             return
         }
         
         guard let username = textFields[3].text, !username.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Username can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.usernameEmpty)
             return
         }
         
         guard let password = textFields[4].text, !password.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Password can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.passwordEmpty)
             return
         }
         
         guard let confirmPassword = textFields[5].text, password == confirmPassword else {
-            Helper.app.showMessagePrompt(message: "Password and confirm password must match.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.confirmPasswordMustMatchPassword)
             return
         }
         

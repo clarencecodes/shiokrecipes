@@ -16,14 +16,14 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.font = Constants.Design.Font.newYorkBold.withSize(24)
-            titleLabel.text = Constants.Content.forgotPasswordTitle1
+            titleLabel.text = Constants.Strings.forgotPasswordTitle1
         }
     }
     
     @IBOutlet weak var title2Label: UILabel! {
         didSet {
             title2Label.font = Constants.Design.Font.newYorkBold.withSize(18)
-            title2Label.text = Constants.Content.forgotPasswordTitle2
+            title2Label.text = Constants.Strings.forgotPasswordTitle2
         }
     }
     @IBOutlet weak var emailTextField: UITextField! {
@@ -47,7 +47,7 @@ class ForgotPasswordViewController: UIViewController {
             // Set the font and keyboard type for the textfield
             emailTextField.font = Constants.Design.Font.newYorkMedium.withSize(18)
             
-            emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Content.email, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
+            emailTextField.attributedPlaceholder = NSAttributedString(string: Constants.Strings.email, attributes: [NSAttributedString.Key.foregroundColor: UIColor.white])
             emailTextField.keyboardType = .emailAddress
             emailTextField.alpha = 0.6
             
@@ -88,8 +88,8 @@ class ForgotPasswordViewController: UIViewController {
             if let error = error {
                 Helper.app.showMessagePrompt(message: error.localizedDescription)
             } else {
-                let alert = UIAlertController(title: "Reset Password",
-                                              message: "Please check your email for a link to reset your password. :)",
+                let alert = UIAlertController(title: Constants.Strings.resetPassword,
+                                              message: Constants.Strings.checkEmailToResetPassword,
                                               preferredStyle: .alert)
                 alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
                     self.navigationController?.popViewController(animated: true)

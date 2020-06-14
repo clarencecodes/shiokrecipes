@@ -15,7 +15,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel! {
         didSet {
             titleLabel.font = Constants.Design.Font.newYorkBold.withSize(24)
-            titleLabel.text = Constants.Content.welcomeText
+            titleLabel.text = Constants.Strings.welcomeText
         }
     }
     
@@ -44,10 +44,10 @@ class LoginViewController: UIViewController {
                 var placeholderText = ""
                 switch textField.tag {
                 case 0:
-                    placeholderText = Constants.Content.emailOrUsername
+                    placeholderText = Constants.Strings.emailOrUsername
                     textField.keyboardType = .emailAddress
                 case 1:
-                    placeholderText = Constants.Content.password
+                    placeholderText = Constants.Strings.password
                     textField.isSecureTextEntry = true
                 default:
                     break
@@ -105,12 +105,12 @@ class LoginViewController: UIViewController {
         
         // TODO: refactor this
         guard let email = textFields[0].text, !email.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Email can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.emailEmpty)
             return
         }
         
         guard let password = textFields[1].text, !password.isEmpty else {
-            Helper.app.showMessagePrompt(message: "Password can't be empty.")
+            Helper.app.showMessagePrompt(message: Constants.Strings.password)
             return
         }
         
