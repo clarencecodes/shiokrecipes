@@ -102,6 +102,40 @@ class SignupViewController: UIViewController {
             termsAndPrivacyLabel.attributedText = attributedString
         }
     }
+    
+    @IBOutlet weak var termsAndPrivacyTextView: UITextView! {
+        didSet {
+            let attributedString = NSMutableAttributedString(string: Constants.Strings.agreeToTerms)
+            let rangeOfAttributedString = NSRange(location: 0, length: attributedString.length)
+            
+            // Set font and font color of attributed string
+            attributedString.addAttribute(NSAttributedString.Key.font, value: Constants.Design.Font.newYorkRegular.withSize(12), range: rangeOfAttributedString)
+            attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: UIColor.white, range: rangeOfAttributedString)
+            
+            // Set links for Terms and Conditions & Privacy Policy
+            // TODO: change the terms and conditions & privacy policy URLs
+            let range1 = (Constants.Strings.agreeToTerms as NSString).range(of: "Terms and Conditions")
+            if range1.length > 0 {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Constants.Design.Color.orange, range: range1)
+                attributedString.addAttribute(NSAttributedString.Key.link, value: "https://google.com", range: range1)
+            }
+            
+            let range2 = (Constants.Strings.agreeToTerms as NSString).range(of: "Privacy Policy.")
+            if range2.length > 0 {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Constants.Design.Color.orange, range: range2)
+                attributedString.addAttribute(NSAttributedString.Key.link, value: "https://twitter.com", range: range2)
+            }
+            
+            termsAndPrivacyTextView.attributedText = attributedString
+            
+            // Set color for links
+            let linkAttributes: [NSAttributedString.Key: Any] = [
+                NSAttributedString.Key.foregroundColor: Constants.Design.Color.orange
+            ]
+            termsAndPrivacyTextView.linkTextAttributes = linkAttributes
+        }
+    }
+    
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
             // Set font of titleLabel

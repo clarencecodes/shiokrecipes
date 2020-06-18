@@ -12,6 +12,7 @@
                 <outlet property="signInButton" destination="iXS-J6-oSj" id="cvu-Hs-bsC"/>
                 <outlet property="signupButton" destination="HJP-lg-NUz" id="LIT-j5-6Lf"/>
                 <outlet property="termsAndPrivacyLabel" destination="aGh-Zt-BIT" id="G1k-F8-fz9"/>
+                <outlet property="termsAndPrivacyTextView" destination="wZy-Em-cyX" id="v08-Gf-OiG"/>
                 <outlet property="titleLabel" destination="GPU-df-fr4" id="SPj-GS-RZ7"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="textFields" destination="66s-Eh-vCN" collectionClass="NSMutableArray" id="Bnd-pu-wE5"/>
@@ -125,6 +126,16 @@
                         <action selector="signupButtonTapped:" destination="-1" eventType="touchUpInside" id="OAF-Wa-Ux7"/>
                     </connections>
                 </button>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="By signing up, you agree to our Terms and Conditions &amp; Privacy Policy." translatesAutoresizingMaskIntoConstraints="NO" id="wZy-Em-cyX">
+                    <rect key="frame" x="93.5" y="526" width="227" height="40"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="40" id="2U8-6O-t7O"/>
+                        <constraint firstAttribute="width" constant="227" id="Pcj-5Q-ejX"/>
+                    </constraints>
+                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking 'Sign up', you agree to our Terms and Conditions &amp; Privacy Policy." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aGh-Zt-BIT">
                     <rect key="frame" x="93.5" y="526" width="227" height="29"/>
                     <constraints>
@@ -152,11 +163,13 @@
                 <constraint firstItem="r1I-K8-4Vr" firstAttribute="top" secondItem="GPU-df-fr4" secondAttribute="bottom" constant="30" id="FJi-y0-jZ7"/>
                 <constraint firstItem="iXS-J6-oSj" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="G5G-42-VyH"/>
                 <constraint firstItem="GPU-df-fr4" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="JXu-rX-Pbf"/>
+                <constraint firstItem="wZy-Em-cyX" firstAttribute="top" secondItem="HJP-lg-NUz" secondAttribute="bottom" constant="20" id="NhC-Jb-Pg6"/>
                 <constraint firstItem="HJP-lg-NUz" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="Pqt-Gl-8j2"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="iXS-J6-oSj" secondAttribute="bottom" constant="50" id="T6K-iP-2ol"/>
                 <constraint firstItem="ih2-hj-NiP" firstAttribute="bottom" secondItem="i5M-Pr-FkT" secondAttribute="bottom" id="WqN-bD-XmZ"/>
                 <constraint firstItem="aGh-Zt-BIT" firstAttribute="top" secondItem="HJP-lg-NUz" secondAttribute="bottom" constant="20" id="bBr-tW-IGR"/>
                 <constraint firstAttribute="top" secondItem="ih2-hj-NiP" secondAttribute="top" id="fDK-zI-vJy"/>
+                <constraint firstItem="wZy-Em-cyX" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="fUK-ug-5y6"/>
                 <constraint firstItem="r1I-K8-4Vr" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="huc-iT-oDm"/>
                 <constraint firstItem="HJP-lg-NUz" firstAttribute="top" secondItem="r1I-K8-4Vr" secondAttribute="bottom" constant="30" id="jfx-cj-aFf"/>
                 <constraint firstAttribute="trailing" secondItem="ih2-hj-NiP" secondAttribute="trailing" id="nrQ-Kr-foX"/>
@@ -165,6 +178,11 @@
                 <constraint firstItem="aGh-Zt-BIT" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="xYP-LH-SeS"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <variation key="default">
+                <mask key="subviews">
+                    <exclude reference="aGh-Zt-BIT"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="14" y="13"/>
         </view>
     </objects>
