@@ -90,7 +90,19 @@ class SignupViewController: UIViewController {
     }
     @IBOutlet weak var signInButton: UIButton! {
         didSet {
+            // Set font of titleLabel
             signInButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(14)
+            
+            let attributedString = NSMutableAttributedString(string: Constants.Strings.alreadyHaveAccount)
+            
+            // Search for word occurrence
+            let range = (Constants.Strings.alreadyHaveAccount as NSString).range(of: "Sign in")
+            if range.length > 0 {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Constants.Design.Color.orange, range: range)
+            }
+            
+            // Set attributed text
+            signInButton.titleLabel!.attributedText = attributedString
         }
     }
     
