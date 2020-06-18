@@ -90,7 +90,7 @@ class LoginViewController: UIViewController {
                     
             // Search for word occurrence
             let range = (Constants.Strings.dontHaveAccount as NSString).range(of: "Sign up")
-            if (range.length > 0) {
+            if range.length > 0 {
                 attributedString.addAttribute(NSAttributedString.Key.foregroundColor,value: Constants.Design.Color.orange, range: range)
             }
                     

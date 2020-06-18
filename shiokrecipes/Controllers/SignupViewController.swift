@@ -86,6 +86,20 @@ class SignupViewController: UIViewController {
     @IBOutlet weak var termsAndPrivacyLabel: UILabel! {
         didSet {
             termsAndPrivacyLabel.font = Constants.Design.Font.newYorkRegular.withSize(12)
+            
+            let attributedString = NSMutableAttributedString(string: Constants.Strings.agreeToTerms)
+            
+            let range1 = (Constants.Strings.agreeToTerms as NSString).range(of: "Terms and Conditions")
+            if range1.length > 0 {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Constants.Design.Color.orange, range: range1)
+            }
+            
+            let range2 = (Constants.Strings.agreeToTerms as NSString).range(of: "Privacy Policy")
+            if range2.length > 0 {
+                attributedString.addAttribute(NSAttributedString.Key.foregroundColor, value: Constants.Design.Color.orange, range: range2)
+            }
+            
+            termsAndPrivacyLabel.attributedText = attributedString
         }
     }
     @IBOutlet weak var signInButton: UIButton! {

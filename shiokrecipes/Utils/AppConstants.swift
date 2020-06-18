@@ -70,6 +70,7 @@ struct Constants {
         // Login & Signup screens
         static let welcomeText = "Welcome,\nsign in to continue"
         static let dontHaveAccount = "Don't have an account? Sign up"
+        static let agreeToTerms = "By signing up, you agree to our Terms and Conditions & Privacy Policy."
         static let alreadyHaveAccount = "Already have an account? Sign in"
         static let emailOrUsername = "email or username"
         static let password = "password"
