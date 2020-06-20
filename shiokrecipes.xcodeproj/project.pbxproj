@@ -20,6 +20,8 @@
 		1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */; };
 		1130EFFC24936096007B5290 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130EFFB24936096007B5290 /* FavoritesViewController.swift */; };
 		1130F005249371DC007B5290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130F004249371DC007B5290 /* TabBarController.swift */; };
+		115716A9249E5D380089031B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716A7249E5D380089031B /* SettingsViewController.swift */; };
+		115716AC249E65CA0089031B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AB249E65CA0089031B /* SettingsCell.swift */; };
 		117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E722494B01D00E97466 /* GoogleService-Info.plist */; };
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
@@ -48,6 +50,8 @@
 		1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyRecipesViewController.swift; sourceTree = "<group>"; };
 		1130EFFB24936096007B5290 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		1130F004249371DC007B5290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		115716A7249E5D380089031B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		115716AB249E65CA0089031B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		117C4E722494B01D00E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -114,6 +118,8 @@
 				11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */,
 				11DA96002492390D00FF6C19 /* RecipeViewController.xib */,
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
+				115716A7249E5D380089031B /* SettingsViewController.swift */,
+				115716AB249E65CA0089031B /* SettingsCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -299,11 +305,13 @@
 				11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */,
 				112AA0262490CB4700A4D822 /* LoginViewController.swift in Sources */,
 				11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */,
+				115716A9249E5D380089031B /* SettingsViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
 				112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */,
 				1130F005249371DC007B5290 /* TabBarController.swift in Sources */,
 				111ABF7B24937F9B007A2261 /* AuthHelper.swift in Sources */,
 				1130EFFC24936096007B5290 /* FavoritesViewController.swift in Sources */,
+				115716AC249E65CA0089031B /* SettingsCell.swift in Sources */,
 				11865DA42490F49500FC3743 /* AppConstants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

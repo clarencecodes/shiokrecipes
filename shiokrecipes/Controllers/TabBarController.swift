@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let exploreTabBarItem: UITabBarItem = {
         let item = UITabBarItem()
         item.title = "Explore"
@@ -39,7 +39,11 @@ class TabBarController: UITabBarController {
         return item
     }()
     
+    let settingsViewController = SettingsViewController()
+    
     override func viewDidLoad() {
+        delegate = self
+        
         let exploreVc = ExploreViewController()
         exploreVc.tabBarItem = exploreTabBarItem
         
@@ -49,7 +53,7 @@ class TabBarController: UITabBarController {
         let favoritesVc = FavoritesViewController()
         favoritesVc.tabBarItem = favoritesTabBarItem
         
-        let settingsVc = UIViewController()
+        let settingsVc = settingsViewController
         settingsVc.tabBarItem = settingsTabBarItem
         
         self.viewControllers = [exploreVc, myRecipesVc, favoritesVc, settingsVc]
@@ -57,9 +61,15 @@ class TabBarController: UITabBarController {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item == settingsTabBarItem {
-            // TODO: present the SettingsViewController instead.
-            AuthHelper.shared.logout()
+            let vc = SettingsViewController()
+            self.present(vc, animated: true, completion: nil)
         }
     }
     
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        if viewController == settingsViewController {
+            return false
+        }
+        return true
+    }
 }
