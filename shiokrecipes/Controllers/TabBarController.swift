@@ -39,21 +39,17 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         return item
     }()
     
-    let settingsViewController = SettingsViewController()
+    let exploreVc = ExploreViewController()
+    let myRecipesVc = MyRecipesViewController()
+    let favoritesVc = FavoritesViewController()
+    let settingsVc = SettingsViewController()
     
     override func viewDidLoad() {
         delegate = self
         
-        let exploreVc = ExploreViewController()
         exploreVc.tabBarItem = exploreTabBarItem
-        
-        let myRecipesVc = MyRecipesViewController()
         myRecipesVc.tabBarItem = myRecipesTabBarItem
-        
-        let favoritesVc = FavoritesViewController()
         favoritesVc.tabBarItem = favoritesTabBarItem
-        
-        let settingsVc = settingsViewController
         settingsVc.tabBarItem = settingsTabBarItem
         
         self.viewControllers = [exploreVc, myRecipesVc, favoritesVc, settingsVc]
@@ -67,7 +63,13 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
     
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        if viewController == settingsViewController {
+        if viewController == settingsVc {
+            let selectedImage = UIImage(systemName: "gear",
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .black))?
+                .withRenderingMode(.alwaysOriginal)
+                .withBaselineOffset(fromBottom: 3)
+            
+            settingsVc.tabBarItem.image = selectedImage
             return false
         }
         return true
