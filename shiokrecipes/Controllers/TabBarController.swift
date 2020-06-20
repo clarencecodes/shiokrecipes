@@ -57,6 +57,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
         if item == settingsTabBarItem {
+            // Present a new instance of SettingsViewController instead of using the above `settingsVc`.
+            // This prevents an exception - "Application tried to present modally an active controller" from happening
             let vc = SettingsViewController()
             self.present(vc, animated: true, completion: nil)
         }
