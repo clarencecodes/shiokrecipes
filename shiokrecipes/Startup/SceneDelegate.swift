@@ -12,16 +12,20 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
         
         self.window = UIWindow(windowScene: windowScene)
         
+        var navigationController: UINavigationController!
+        if AuthHelper.shared.userIsLoggedIn() {
+            navigationController = UINavigationController(rootViewController: TabBarController.shared)
+        } else {
+            let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+            navigationController = UINavigationController(rootViewController: loginVc)
+        }
         
-        let vc = LoginViewController(nibName: "LoginViewController", bundle: nil)
-        let navigationController = UINavigationController(rootViewController: vc)
         navigationController.isNavigationBarHidden = true
         navigationController.isToolbarHidden = true
         

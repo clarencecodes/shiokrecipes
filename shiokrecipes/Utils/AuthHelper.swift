@@ -73,11 +73,14 @@ class AuthHelper {
         }
     }
     
-    private func navigateToExploreScreen() {
+    func userIsLoggedIn() -> Bool {
+        return (Auth.auth().currentUser != nil)
+    }
+    
+    func navigateToExploreScreen() {
         if let keyWindow = UIApplication.shared.windows.filter({ $0.isKeyWindow }).first,
             let navigationController = keyWindow.rootViewController as? UINavigationController {
-            let tabbarController = TabBarController()
-            navigationController.viewControllers = [tabbarController]
+            navigationController.viewControllers = [TabBarController.shared]
             navigationController.popToRootViewController(animated: true)
         }
     }

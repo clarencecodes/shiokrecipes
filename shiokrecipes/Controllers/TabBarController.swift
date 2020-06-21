@@ -9,6 +9,8 @@
 import UIKit
 
 class TabBarController: UITabBarController, UITabBarControllerDelegate {
+    static let shared = TabBarController()
+    
     let exploreTabBarItem: UITabBarItem = {
         let item = UITabBarItem()
         item.title = "Explore"
