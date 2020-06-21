@@ -9,17 +9,25 @@
 import UIKit
 
 class AccountSettingsViewController: UITableViewController {
-
+    
+    // MARK: - View life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(SettingsTextFieldCell.self, forCellReuseIdentifier: "SettingsTextFieldCell")
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        self.title = "Account"
+        let saveButton = UIBarButtonItem(title: "Save", style: .done, target: self, action: #selector(saveAccountDetailChanges))
+        self.navigationItem.rightBarButtonItem = saveButton
+    }
+    
+    @objc private func saveAccountDetailChanges() {
+        print("saveAccountDetailChanges")
+        
+        // TODO: Save changes to Firebase
+        
+        self.dismiss(animated: true, completion: nil)
     }
 
     // MARK: - Table view data source & delegate
