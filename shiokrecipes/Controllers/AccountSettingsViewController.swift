@@ -7,13 +7,37 @@
 //
 
 import UIKit
+import Firebase
 
 class AccountSettingsViewController: UITableViewController {
+    
+    // MARK: - Properties
+    
+    private var firstName: String!
+    private var lastName: String!
+    private var email: String!
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let db = Firestore.firestore()
+        let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
+        
+        userIdRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+                
+                self.firstName = (document.get("first_name") as! String)
+                self.lastName = (document.get("last_name") as! String)
+                
+                self.tableView.reloadData()
+            } else {
+                print("Document does not exist")
+            }
+        }
         
         tableView.register(SettingsTextFieldCell.self, forCellReuseIdentifier: "SettingsTextFieldCell")
 
@@ -46,8 +70,10 @@ class AccountSettingsViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             cell.label.text = "FIRST NAME"
+            cell.textField.text = self.firstName
         case 1:
             cell.label.text = "LAST NAME"
+            cell.textField.text = self.lastName
         case 2:
             cell.label.text = "EMAIL"
         default:
