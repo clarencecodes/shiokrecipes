@@ -25,7 +25,9 @@ class AccountSettingsViewController: UITableViewController {
         let db = Firestore.firestore()
         let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
-        userIdRef.getDocument { (document, error) in
+        userIdRef.getDocument { [weak self] (document, error) in
+            guard let self = self else { return }
+            
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
                 print("Document data: \(dataDescription)")
@@ -35,6 +37,7 @@ class AccountSettingsViewController: UITableViewController {
                 self.email = Auth.auth().currentUser!.email
                 
                 self.tableView.reloadData()
+                
             } else {
                 print("Document does not exist")
             }
