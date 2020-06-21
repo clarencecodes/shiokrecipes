@@ -15,7 +15,7 @@ class SettingsTextFieldCell: UITableViewCell {
     lazy var label: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
-        lb.font = .systemFont(ofSize: 14)
+        lb.font = .systemFont(ofSize: 13)
         lb.textColor = .darkGray
         return lb
     }()
@@ -24,7 +24,7 @@ class SettingsTextFieldCell: UITableViewCell {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.widthAnchor.constraint(equalToConstant: 220).isActive = true
-        textField.font = .systemFont(ofSize: 18)
+        textField.font = .systemFont(ofSize: 14)
         return textField
     }()
     

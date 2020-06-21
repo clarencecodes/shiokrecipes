@@ -47,12 +47,29 @@ class AccountSettingsViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    // MARK: - Save changes to Firebase
+    
     @objc private func saveAccountDetailChanges() {
         print("saveAccountDetailChanges")
         
-        // TODO: Save changes to Firebase
+        let db = Firestore.firestore()
+        let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
-        self.dismiss(animated: true, completion: nil)
+        if let updatedFirstName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SettingsTextFieldCell)?.textField.text,
+            let updatedLastName = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? SettingsTextFieldCell)?.textField.text {
+            
+            userIdRef.setData([
+                "first_name": updatedFirstName,
+                "last_name": updatedLastName
+            ]) { error in
+                if let error = error {
+                    print("Error writing document: \(error)")
+                } else {
+                    print("Document successfully written!")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
     }
 
     // MARK: - Table view data source & delegate
@@ -77,6 +94,9 @@ class AccountSettingsViewController: UITableViewController {
             cell.textField.text = self.lastName
         case 2:
             cell.label.text = "EMAIL"
+            cell.textField.isEnabled = false
+            cell.textField.textColor = .lightGray
+            cell.textField.font = .systemFont(ofSize: 14, weight: .semibold)
             cell.textField.text = self.email
         default:
             break
