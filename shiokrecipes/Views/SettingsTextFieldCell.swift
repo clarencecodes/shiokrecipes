@@ -1,14 +1,14 @@
 //
-//  SettingsCell.swift
+//  SettingsTextFieldCell.swift
 //  shiokrecipes
 //
-//  Created by Clarence Chan on 20/6/20.
+//  Created by Clarence Chan on 21/6/20.
 //  Copyright © 2020 clarencechan. All rights reserved.
 //
 
 import UIKit
 
-class SettingsCell: UITableViewCell {
+class SettingsTextFieldCell: UITableViewCell {
     
     // MARK: - Views
     
@@ -16,21 +16,19 @@ class SettingsCell: UITableViewCell {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.font = .systemFont(ofSize: 14)
-        lb.textColor = .black
+        lb.textColor = .darkGray
         return lb
     }()
     
-    lazy var rightChevron: UIImageView = {
-        let imageView = UIImageView()
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.heightAnchor.constraint(equalToConstant: 20).isActive = true
-        imageView.widthAnchor.constraint(equalToConstant: 12).isActive = true
-        imageView.image = UIImage(systemName: "chevron.right")
-        imageView.tintColor = .lightGray
-        return imageView
+    lazy var textField: UITextField = {
+        let textField = UITextField()
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        textField.widthAnchor.constraint(equalToConstant: 220).isActive = true
+        textField.font = .systemFont(ofSize: 18)
+        return textField
     }()
     
-    // MARK: - Initialization
+    // MARK: - Initialization code
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -43,25 +41,25 @@ class SettingsCell: UITableViewCell {
         setupViews()
         setupConstraints()
     }
-    
+
     // MARK: - View setup
-    
+
     private func setupViews() {
         self.selectionStyle = .none
         contentView.addSubview(label)
-        contentView.addSubview(rightChevron)
+        contentView.addSubview(textField)
     }
     
     private func setupConstraints() {
         NSLayoutConstraint.activate([
             contentView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width),
-            contentView.heightAnchor.constraint(equalToConstant: 50),
+            contentView.heightAnchor.constraint(equalToConstant: 60),
             
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
             label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
-            rightChevron.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            rightChevron.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
+            textField.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
+            textField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -25)
         ])
     }
 }

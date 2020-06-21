@@ -68,7 +68,7 @@ class SettingsViewController: UITableViewController {
             let versionLabel: UILabel = {
                 let lb = UILabel()
                 lb.translatesAutoresizingMaskIntoConstraints = false
-                lb.font = .systemFont(ofSize: 14)
+                lb.font = .systemFont(ofSize: 14, weight: .medium)
                 lb.textColor = .lightGray
                 lb.text = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String ?? ""
                 return lb
@@ -94,6 +94,8 @@ class SettingsViewController: UITableViewController {
         switch indexPath.row {
         case 0:
             print("Account tapped")
+            let vc = AccountSettingsViewController()
+            self.navigationController?.pushViewController(vc, animated: true)
         case 1:
             print("Change password tapped")
         case 2:

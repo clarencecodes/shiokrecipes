@@ -22,6 +22,8 @@
 		1130F005249371DC007B5290 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1130F004249371DC007B5290 /* TabBarController.swift */; };
 		115716A9249E5D380089031B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716A7249E5D380089031B /* SettingsViewController.swift */; };
 		115716AC249E65CA0089031B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AB249E65CA0089031B /* SettingsCell.swift */; };
+		115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AD249F49B60089031B /* AccountSettingsViewController.swift */; };
+		115716B0249F4BC30089031B /* SettingsTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */; };
 		117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E722494B01D00E97466 /* GoogleService-Info.plist */; };
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
@@ -52,6 +54,8 @@
 		1130F004249371DC007B5290 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		115716A7249E5D380089031B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		115716AB249E65CA0089031B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
+		115716AD249F49B60089031B /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
+		115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTextFieldCell.swift; sourceTree = "<group>"; };
 		117C4E722494B01D00E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -119,6 +123,7 @@
 				11DA96002492390D00FF6C19 /* RecipeViewController.xib */,
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
 				115716AB249E65CA0089031B /* SettingsCell.swift */,
+				115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -135,6 +140,7 @@
 				1130EFFB24936096007B5290 /* FavoritesViewController.swift */,
 				1130F004249371DC007B5290 /* TabBarController.swift */,
 				115716A7249E5D380089031B /* SettingsViewController.swift */,
+				115716AD249F49B60089031B /* AccountSettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -299,6 +305,7 @@
 			files = (
 				1130EFF624924322007B5290 /* RecipeCollectionViewCell.swift in Sources */,
 				11B5B658249521800095016A /* Helper.swift in Sources */,
+				115716B0249F4BC30089031B /* SettingsTextFieldCell.swift in Sources */,
 				11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */,
 				1130EFF824935F3A007B5290 /* ExploreViewController.swift in Sources */,
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
@@ -307,6 +314,7 @@
 				11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */,
 				115716A9249E5D380089031B /* SettingsViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
+				115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */,
 				112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */,
 				1130F005249371DC007B5290 /* TabBarController.swift in Sources */,
 				111ABF7B24937F9B007A2261 /* AuthHelper.swift in Sources */,
