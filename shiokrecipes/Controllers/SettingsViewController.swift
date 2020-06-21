@@ -36,7 +36,7 @@ class SettingsViewController: UITableViewController {
         self.dismiss(animated: true, completion: nil)
     }
 
-    // MARK: - Table view data source
+    // MARK: - Table view data source & delegate
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1

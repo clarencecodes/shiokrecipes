@@ -118,7 +118,6 @@
 				11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */,
 				11DA96002492390D00FF6C19 /* RecipeViewController.xib */,
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
-				115716A7249E5D380089031B /* SettingsViewController.swift */,
 				115716AB249E65CA0089031B /* SettingsCell.swift */,
 			);
 			path = Views;
@@ -135,6 +134,7 @@
 				1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */,
 				1130EFFB24936096007B5290 /* FavoritesViewController.swift */,
 				1130F004249371DC007B5290 /* TabBarController.swift */,
+				115716A7249E5D380089031B /* SettingsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

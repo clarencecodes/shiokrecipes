@@ -10,6 +10,8 @@ import UIKit
 
 class SettingsCell: UITableViewCell {
     
+    // MARK: - Views
+    
     lazy var label: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
@@ -28,6 +30,8 @@ class SettingsCell: UITableViewCell {
         return imageView
     }()
     
+    // MARK: - Initialization
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupViews()
@@ -39,6 +43,8 @@ class SettingsCell: UITableViewCell {
         setupViews()
         setupConstraints()
     }
+    
+    // MARK: - View setup
     
     private func setupViews() {
         self.selectionStyle = .none
