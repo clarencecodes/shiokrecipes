@@ -93,11 +93,9 @@ class SettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         switch indexPath.row {
         case 0:
-            print("Account tapped")
-            let vc = AccountSettingsViewController()
-            self.navigationController?.pushViewController(vc, animated: true)
+            self.navigationController?.pushViewController(AccountSettingsViewController(), animated: true)
         case 1:
-            print("Change password tapped")
+            self.navigationController?.pushViewController(ChangePasswordViewController(), animated: true)
         case 2:
             print("Terms & Conditions tapped")
         case 3:

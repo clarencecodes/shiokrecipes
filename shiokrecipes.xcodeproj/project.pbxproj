@@ -24,6 +24,8 @@
 		115716AC249E65CA0089031B /* SettingsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AB249E65CA0089031B /* SettingsCell.swift */; };
 		115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AD249F49B60089031B /* AccountSettingsViewController.swift */; };
 		115716B0249F4BC30089031B /* SettingsTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */; };
+		115716B2249F5E130089031B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716B1249F5E130089031B /* ChangePasswordViewController.swift */; };
+		115716B4249F68FD0089031B /* PasswordTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */; };
 		117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E722494B01D00E97466 /* GoogleService-Info.plist */; };
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
@@ -56,6 +58,8 @@
 		115716AB249E65CA0089031B /* SettingsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsCell.swift; sourceTree = "<group>"; };
 		115716AD249F49B60089031B /* AccountSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountSettingsViewController.swift; sourceTree = "<group>"; };
 		115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTextFieldCell.swift; sourceTree = "<group>"; };
+		115716B1249F5E130089031B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldCell.swift; sourceTree = "<group>"; };
 		117C4E722494B01D00E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +128,7 @@
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
 				115716AB249E65CA0089031B /* SettingsCell.swift */,
 				115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */,
+				115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				1130F004249371DC007B5290 /* TabBarController.swift */,
 				115716A7249E5D380089031B /* SettingsViewController.swift */,
 				115716AD249F49B60089031B /* AccountSettingsViewController.swift */,
+				115716B1249F5E130089031B /* ChangePasswordViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -308,10 +314,12 @@
 				115716B0249F4BC30089031B /* SettingsTextFieldCell.swift in Sources */,
 				11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */,
 				1130EFF824935F3A007B5290 /* ExploreViewController.swift in Sources */,
+				115716B2249F5E130089031B /* ChangePasswordViewController.swift in Sources */,
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
 				11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */,
 				112AA0262490CB4700A4D822 /* LoginViewController.swift in Sources */,
 				11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */,
+				115716B4249F68FD0089031B /* PasswordTextFieldCell.swift in Sources */,
 				115716A9249E5D380089031B /* SettingsViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
 				115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */,
