@@ -8,8 +8,14 @@
 
 import UIKit
 
+protocol SettingsViewControllerDelegate {
+    func didDismissSettingsModal()
+}
+
 class SettingsViewController: UITableViewController {
-        
+    
+    var delegate: SettingsViewControllerDelegate?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -18,6 +24,10 @@ class SettingsViewController: UITableViewController {
         self.title = "Settings"
         let closeButton = UIBarButtonItem(title: "Close", style: .done, target: self, action: #selector(dismissScreen))
         self.navigationItem.rightBarButtonItem = closeButton
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        self.delegate?.didDismissSettingsModal()
     }
     
     @objc private func dismissScreen() {

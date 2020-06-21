@@ -13,6 +13,9 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         let item = UITabBarItem()
         item.title = "Explore"
         item.image = UIImage(systemName: "magnifyingglass")
+        item.selectedImage = UIImage(systemName: "magnifyingglass",
+                                     withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .bold))?
+            .withRenderingMode(.alwaysOriginal)
         return item
     }()
     
@@ -35,7 +38,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     let settingsTabBarItem: UITabBarItem = {
         let item = UITabBarItem()
         item.title = "Settings"
-        item.image = UIImage(systemName: "gear")
+        item.image = UIImage(systemName: "gear",
+                             withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .regular))
         return item
     }()
     
@@ -53,6 +57,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         settingsVc.tabBarItem = settingsTabBarItem
         
         self.viewControllers = [exploreVc, myRecipesVc, favoritesVc, settingsVc]
+        self.tabBar.tintColor = .black
     }
     
     override func tabBar(_ tabBar: UITabBar, didSelect item: UITabBarItem) {
@@ -60,6 +65,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             // Present a new instance of SettingsViewController instead of using the above `settingsVc`.
             // This prevents an exception - "Application tried to present modally an active controller" from happening
             let vc = SettingsViewController()
+            vc.delegate = self
             self.present(vc, animated: true, completion: nil)
         }
     }
@@ -67,13 +73,18 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
         if viewController == settingsVc {
             let selectedImage = UIImage(systemName: "gear",
-                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 16, weight: .black))?
+                                withConfiguration: UIImage.SymbolConfiguration(pointSize: 15, weight: .bold))?
                 .withRenderingMode(.alwaysOriginal)
-                .withBaselineOffset(fromBottom: 3)
             
             settingsVc.tabBarItem.image = selectedImage
             return false
         }
         return true
+    }
+}
+
+extension TabBarController: SettingsViewControllerDelegate {
+    func didDismissSettingsModal() {
+        settingsVc.tabBarItem.image = UIImage(systemName: "gear")
     }
 }
