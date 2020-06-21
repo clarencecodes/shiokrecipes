@@ -64,8 +64,6 @@ class AccountSettingsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! SettingsTextFieldCell
         cell.textField.becomeFirstResponder()
-//        let cell = tableView.cellForRowAt(indexPath: indexPath) as! SettingsTextFieldCell
-//        cell.textField.becomeFirstResponder()
     }
 
     /*
