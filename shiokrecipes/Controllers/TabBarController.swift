@@ -66,7 +66,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             // This prevents an exception - "Application tried to present modally an active controller" from happening
             let vc = SettingsViewController()
             vc.delegate = self
-            self.present(vc, animated: true, completion: nil)
+            let navigationController = UINavigationController(rootViewController: vc)
+            self.present(navigationController, animated: true, completion: nil)
         }
     }
     
