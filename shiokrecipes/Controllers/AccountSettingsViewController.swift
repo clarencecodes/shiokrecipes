@@ -32,6 +32,7 @@ class AccountSettingsViewController: UITableViewController {
                 
                 self.firstName = (document.get("first_name") as! String)
                 self.lastName = (document.get("last_name") as! String)
+                self.email = Auth.auth().currentUser!.email
                 
                 self.tableView.reloadData()
             } else {
@@ -76,6 +77,7 @@ class AccountSettingsViewController: UITableViewController {
             cell.textField.text = self.lastName
         case 2:
             cell.label.text = "EMAIL"
+            cell.textField.text = self.email
         default:
             break
         }
