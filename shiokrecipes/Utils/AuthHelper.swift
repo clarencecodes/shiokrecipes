@@ -12,20 +12,21 @@ import Firebase
 class AuthHelper {
     static let shared = AuthHelper()
     
-    func login(email: String, password: String) {
+    func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         
         Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
             guard let self = self else { return }
             
             if error != nil {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
+                completion(false)
                 return
             }
             
             print("\(email) has signed in successfully.")
             self.navigateToExploreScreen()
         }
-        
+        completion(true)
     }
     
     func logout() {

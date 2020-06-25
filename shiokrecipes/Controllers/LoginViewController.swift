@@ -126,7 +126,11 @@ class LoginViewController: UIViewController {
             return
         }
         
-        AuthHelper.shared.login(email: email, password: password)
+        self.showSpinner()
+        AuthHelper.shared.login(email: email, password: password) { [weak self] _ in
+            guard let self = self else { return }
+            self.removeSpinner()
+        }
     }
     
     @IBAction func navigateToSignupScreen(_ sender: UIButton) {
