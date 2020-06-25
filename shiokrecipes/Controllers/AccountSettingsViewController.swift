@@ -25,8 +25,11 @@ class AccountSettingsViewController: UITableViewController {
         let db = Firestore.firestore()
         let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
+        self.showSpinner()
         userIdRef.getDocument { [weak self] (document, error) in
             guard let self = self else { return }
+            
+            self.hideSpinner()
             
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
@@ -58,19 +61,23 @@ class AccountSettingsViewController: UITableViewController {
         let db = Firestore.firestore()
         let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
-        if let updatedFirstName = (tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as? SettingsTextFieldCell)?.textField.text,
-            let updatedLastName = (tableView.cellForRow(at: IndexPath(row: 1, section: 0)) as? SettingsTextFieldCell)?.textField.text {
-            
-            userIdRef.setData([
-                "first_name": updatedFirstName,
-                "last_name": updatedLastName
-            ]) { error in
-                if let error = error {
-                    print("Error writing document: \(error)")
-                } else {
-                    print("Document successfully written!")
-                    self.dismiss(animated: true, completion: nil)
-                }
+        guard let updatedFirstName = (tableView.visibleCells[0] as? SettingsTextFieldCell)?.textField.text,
+            let updatedLastName = (tableView.visibleCells[1] as? SettingsTextFieldCell)?.textField.text,
+            !updatedFirstName.isEmpty,
+            !updatedLastName.isEmpty else {
+                self.showAlert(message: Constants.Strings.ensureAllFieldsFilled)
+                return
+        }
+        
+        userIdRef.setData([
+            "first_name": updatedFirstName,
+            "last_name": updatedLastName
+        ]) { error in
+            if let error = error {
+                print("Error writing document: \(error)")
+            } else {
+                print("Document successfully written!")
+                self.dismiss(animated: true, completion: nil)
             }
         }
     }
