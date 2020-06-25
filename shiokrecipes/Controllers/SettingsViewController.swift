@@ -110,6 +110,7 @@ class SettingsViewController: UITableViewController {
                 self.showSpinner()
                 AuthHelper.shared.logout() { [weak self] _ in
                     guard let self = self else { return }
+                    self.delegate?.didDismissSettingsModal()
                     self.hideSpinner()
                 }
             }))
