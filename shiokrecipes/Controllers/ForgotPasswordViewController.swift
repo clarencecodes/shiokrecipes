@@ -86,7 +86,7 @@ class ForgotPasswordViewController: UIViewController {
         Auth.auth().sendPasswordReset(withEmail: email) { [weak self] error in
             guard let self = self else { return }
             
-            self.removeSpinner()
+            self.hideSpinner()
             
             if let error = error {
                 Helper.app.showMessagePrompt(message: error.localizedDescription)

@@ -39,7 +39,7 @@ extension UIViewController {
         }
     }
     
-    func removeSpinner() {
+    func hideSpinner() {
         DispatchQueue.main.async {
             activityView.removeFromSuperview()
         }

@@ -110,7 +110,7 @@ class SettingsViewController: UITableViewController {
                 self.showSpinner()
                 AuthHelper.shared.logout() { [weak self] _ in
                     guard let self = self else { return }
-                    self.removeSpinner()
+                    self.hideSpinner()
                 }
             }))
             alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
