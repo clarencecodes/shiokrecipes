@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -19,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         self.window = UIWindow(windowScene: windowScene)
         
         var navigationController: UINavigationController!
-        if AuthHelper.shared.userIsLoggedIn() {
+        if Auth.auth().currentUser != nil {
             navigationController = UINavigationController(rootViewController: TabBarController.shared)
         } else {
             let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)

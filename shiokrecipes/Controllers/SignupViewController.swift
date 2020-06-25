@@ -187,19 +187,32 @@ class SignupViewController: UIViewController {
         }
         
         self.showSpinner()
-        AuthHelper.shared.signup(
-            firstName: firstName,
-            lastName: lastName,
-            email: email,
-            username: username,
-            password: password) { [weak self] (success) in
-                guard let self = self else { return }
-                self.hideSpinner()
-                if success {
-                    AuthHelper.shared.navigateToExploreScreen()
-                }
-        }
         
+        Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
+            guard let self = self else { return }
+            
+            guard let user = authResult?.user, error == nil else {
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error!.localizedDescription)
+                return
+            }
+            
+            print("\(user.email!) created")
+            
+            let db = Firestore.firestore()
+            db.collection("users").document(user.uid).setData([
+                "first_name": firstName,
+                "last_name": lastName,
+                "username": username
+            ]) { error in
+                if let error = error {
+                    print("Error adding document: \(error)")
+                    self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error.localizedDescription)
+                } else {
+                    print("Document added with ID: \(user.uid)")
+                    self.navigateToExploreScreen()
+                }
+            }
+        }
     }
     
     // MARK: - Class methods

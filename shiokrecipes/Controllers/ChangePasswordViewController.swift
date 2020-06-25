@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ChangePasswordViewController: UITableViewController {
 
@@ -33,8 +34,30 @@ class ChangePasswordViewController: UITableViewController {
         if newPassword != confirmPassword {
             self.showAlert(title: Constants.Strings.oopsAlertTitle, message: Constants.Strings.confirmPasswordMustMatchPassword)
         } else {
-            AuthHelper.shared.changePassword(currentPassword: currentPassword, newPassword: newPassword) { success in
-                self.dismiss(animated: true, completion: nil)
+            guard let email = Auth.auth().currentUser?.email else { return }
+            
+            self.showSpinner()
+            
+            // Check if user's current password is correct before changing the password
+            Auth.auth().signIn(withEmail: email, password: newPassword) { authResult, error in
+                self.hideSpinner()
+                if let error = error {
+                    self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error.localizedDescription)
+                } else {
+                    // Current password is correct. Proceeding with password change.
+                    Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
+                        if let error = error {
+                            self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error.localizedDescription)
+                        } else {
+                            let alert = UIAlertController(title: "Success", message: "Your password has been successfully updated.", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak self] _ in
+                                guard let self = self else { return }
+                                self.dismiss(animated: true, completion: nil)
+                            }))
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    })
+                }
             }
         }
     }

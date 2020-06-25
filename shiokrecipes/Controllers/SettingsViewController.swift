@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 protocol SettingsViewControllerDelegate {
     func didDismissSettingsModal()
@@ -108,10 +109,17 @@ class SettingsViewController: UITableViewController {
             let alert = UIAlertController(title: "Log out", message: "Are you sure you wish to log out?", preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "Yes", style: .destructive, handler: { _ in
                 self.showSpinner()
-                AuthHelper.shared.logout() { [weak self] _ in
-                    guard let self = self else { return }
-                    self.delegate?.didDismissSettingsModal()
-                    self.hideSpinner()
+                
+                let firebaseAuth = Auth.auth()
+                do {
+                    try firebaseAuth.signOut()
+                    
+                    if firebaseAuth.currentUser == nil {
+                        print("User has signed out successfully.")
+                        self.navigateToLoginScreen()
+                    }
+                } catch let signOutError as NSError {
+                    print ("Error signing out: %@", signOutError)
                 }
             }))
             alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))

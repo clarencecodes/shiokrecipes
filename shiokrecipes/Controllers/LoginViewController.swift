@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginViewController: UIViewController {
 
@@ -127,12 +128,15 @@ class LoginViewController: UIViewController {
         }
         
         self.showSpinner()
-        AuthHelper.shared.login(email: email, password: password) { [weak self] (success) in
-            guard let self = self else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             self.hideSpinner()
-            if success {
-                AuthHelper.shared.navigateToExploreScreen()
+            if error != nil {
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error!.localizedDescription)
+                return
             }
+            print("\(email) has signed in successfully.")
+            self.navigateToExploreScreen()
         }
     }
     

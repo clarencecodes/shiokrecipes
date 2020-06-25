@@ -50,4 +50,18 @@ extension UIViewController {
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
+    
+    func navigateToLoginScreen() {
+        let loginVc = LoginViewController(nibName: "LoginViewController", bundle: nil)
+        let navigationController = UINavigationController(rootViewController: loginVc)
+        navigationController.isNavigationBarHidden = true
+        navigationController.isToolbarHidden = true
+        self.view.window?.rootViewController = navigationController
+        self.view.window?.makeKeyAndVisible()
+    }
+    
+    func navigateToExploreScreen() {
+        self.navigationController?.viewControllers = [TabBarController.shared]
+        self.navigationController?.popToRootViewController(animated: true)
+    }
 }
