@@ -40,6 +40,8 @@ extension UIViewController {
     }
     
     func removeSpinner() {
-        activityView.removeFromSuperview()
+        DispatchQueue.main.async {
+            activityView.removeFromSuperview()
+        }
     }
 }

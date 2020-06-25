@@ -107,7 +107,11 @@ class SettingsViewController: UITableViewController {
         case 6:
             let alert = UIAlertController(title: "Log out", message: "Are you sure you wish to log out?", preferredStyle: .alert)
             alert.addAction(UIAlertAction.init(title: "Yes", style: .destructive, handler: { _ in
-                AuthHelper.shared.logout()
+                self.showSpinner()
+                AuthHelper.shared.logout() { [weak self] _ in
+                    guard let self = self else { return }
+                    self.removeSpinner()
+                }
             }))
             alert.addAction(UIAlertAction.init(title: "No", style: .cancel, handler: nil))
             self.present(alert, animated: true, completion: nil)

@@ -29,10 +29,9 @@ class AuthHelper {
         completion(true)
     }
     
-    func logout() {
+    func logout(completion: @escaping (Bool) -> Void) {
         let firebaseAuth = Auth.auth()
         do {
-            
             try firebaseAuth.signOut()
             
             if firebaseAuth.currentUser == nil {
@@ -40,13 +39,14 @@ class AuthHelper {
             }
             
             navigateToLoginScreen()
-            
+            completion(true)
         } catch let signOutError as NSError {
             print ("Error signing out: %@", signOutError)
+            completion(false)
         }
     }
     
-    func signup(firstName: String, lastName: String, email: String, username: String, password: String) {
+    func signup(firstName: String, lastName: String, email: String, username: String, password: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().createUser(withEmail: email, password: password) { [weak self] (authResult, error) in
             guard let self = self else { return }
             
@@ -65,12 +65,13 @@ class AuthHelper {
             ]) { error in
                 if let error = error {
                     print("Error adding document: \(error)")
+                    completion(false)
                 } else {
                     print("Document added with ID: \(user.uid)")
                     self.navigateToExploreScreen()
+                    completion(true)
                 }
             }
-            
         }
     }
     
