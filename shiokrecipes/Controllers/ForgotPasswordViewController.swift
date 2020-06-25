@@ -89,7 +89,7 @@ class ForgotPasswordViewController: UIViewController {
             self.hideSpinner()
             
             if let error = error {
-                Helper.app.showMessagePrompt(message: error.localizedDescription)
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error.localizedDescription)
             } else {
                 let alert = UIAlertController(title: Constants.Strings.resetPassword,
                                               message: Constants.Strings.checkEmailToResetPassword,

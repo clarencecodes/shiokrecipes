@@ -117,12 +117,12 @@ class LoginViewController: UIViewController {
         
         // TODO: refactor this
         guard let email = textFields[0].text, !email.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.emailEmpty)
+            self.showAlert(message: Constants.Strings.emailEmpty)
             return
         }
         
         guard let password = textFields[1].text, !password.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.password)
+            self.showAlert(message: Constants.Strings.passwordEmpty)
             return
         }
         

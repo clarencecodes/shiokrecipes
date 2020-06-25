@@ -157,32 +157,32 @@ class SignupViewController: UIViewController {
         // check that password == confirm password
         
         guard let firstName = textFields[0].text, !firstName.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.firstNameEmpty)
+            self.showAlert(message: Constants.Strings.firstNameEmpty)
             return
         }
         
         guard let lastName = textFields[1].text, !lastName.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.lastNameEmpty)
+            self.showAlert(message: Constants.Strings.lastNameEmpty)
             return
         }
         
         guard let email = textFields[2].text, !email.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.emailEmpty)
+            self.showAlert(message: Constants.Strings.emailEmpty)
             return
         }
         
         guard let username = textFields[3].text, !username.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.usernameEmpty)
+            self.showAlert(message: Constants.Strings.usernameEmpty)
             return
         }
         
         guard let password = textFields[4].text, !password.isEmpty else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.passwordEmpty)
+            self.showAlert(message: Constants.Strings.passwordEmpty)
             return
         }
         
         guard let confirmPassword = textFields[5].text, password == confirmPassword else {
-            Helper.app.showMessagePrompt(message: Constants.Strings.confirmPasswordMustMatchPassword)
+            self.showAlert(message: Constants.Strings.confirmPasswordMustMatchPassword)
             return
         }
         

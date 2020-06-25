@@ -26,16 +26,12 @@ class ChangePasswordViewController: UITableViewController {
             let newPassword = (tableView.visibleCells[1] as? PasswordTextFieldCell)?.secureTextField.text,
             let confirmPassword = (tableView.visibleCells[2] as? PasswordTextFieldCell)?.secureTextField.text,
             !currentPassword.isEmpty, !newPassword.isEmpty, !confirmPassword.isEmpty else {
-                let alert = UIAlertController(title: "Oops", message: Constants.Strings.ensureAllFieldsFilled, preferredStyle: .alert)
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                self.present(alert, animated: true, completion: nil)
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: Constants.Strings.ensureAllFieldsFilled)
                 return
         }
         
         if newPassword != confirmPassword {
-            let alert = UIAlertController(title: "Oops", message: Constants.Strings.confirmPasswordMustMatchPassword, preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
+            self.showAlert(title: Constants.Strings.oopsAlertTitle, message: Constants.Strings.confirmPasswordMustMatchPassword)
         } else {
             AuthHelper.shared.changePassword(currentPassword: currentPassword, newPassword: newPassword) { success in
                 self.dismiss(animated: true, completion: nil)

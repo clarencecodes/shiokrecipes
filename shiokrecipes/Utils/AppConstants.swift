@@ -91,6 +91,7 @@ struct Constants {
         static let confirmPasswordMustMatchPassword = "Password and confirm password must match."
         static let resetPassword = "Reset Password"
         static let checkEmailToResetPassword = "Please check your email for a link to reset your password. :)"
+        static let oopsAlertTitle = "Oops.."
     }
     
     
