@@ -192,9 +192,12 @@ class SignupViewController: UIViewController {
             lastName: lastName,
             email: email,
             username: username,
-            password: password) { [weak self] _ in
+            password: password) { [weak self] (success) in
                 guard let self = self else { return }
                 self.hideSpinner()
+                if success {
+                    AuthHelper.shared.navigateToExploreScreen()
+                }
         }
         
     }

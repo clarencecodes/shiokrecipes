@@ -87,6 +87,7 @@ struct Constants {
         static let firstNameEmpty = "First name can't be empty."
         static let lastNameEmpty = "Last name can't be empty."
         static let usernameEmpty = "Username can't be empty."
+        static let ensureAllFieldsFilled = "Please ensure that all fields are filled in."
         static let confirmPasswordMustMatchPassword = "Password and confirm password must match."
         static let resetPassword = "Reset Password"
         static let checkEmailToResetPassword = "Please check your email for a link to reset your password. :)"

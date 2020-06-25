@@ -22,7 +22,25 @@ class ChangePasswordViewController: UITableViewController {
     
     @objc private func saveNewPasswordChanges() {
         print("saveNewPasswordChanges")
-        self.dismiss(animated: true, completion: nil)
+        guard let currentPassword = (tableView.visibleCells[0] as? PasswordTextFieldCell)?.secureTextField.text,
+            let newPassword = (tableView.visibleCells[1] as? PasswordTextFieldCell)?.secureTextField.text,
+            let confirmPassword = (tableView.visibleCells[2] as? PasswordTextFieldCell)?.secureTextField.text,
+            !currentPassword.isEmpty, !newPassword.isEmpty, !confirmPassword.isEmpty else {
+                let alert = UIAlertController(title: "Oops", message: Constants.Strings.ensureAllFieldsFilled, preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                self.present(alert, animated: true, completion: nil)
+                return
+        }
+        
+        if newPassword != confirmPassword {
+            let alert = UIAlertController(title: "Oops", message: Constants.Strings.confirmPasswordMustMatchPassword, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true, completion: nil)
+        } else {
+            AuthHelper.shared.changePassword(currentPassword: currentPassword, newPassword: newPassword) { success in
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
 
     // MARK: - Table view data source

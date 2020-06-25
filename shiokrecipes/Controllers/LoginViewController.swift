@@ -127,9 +127,12 @@ class LoginViewController: UIViewController {
         }
         
         self.showSpinner()
-        AuthHelper.shared.login(email: email, password: password) { [weak self] _ in
+        AuthHelper.shared.login(email: email, password: password) { [weak self] (success) in
             guard let self = self else { return }
             self.hideSpinner()
+            if success {
+                AuthHelper.shared.navigateToExploreScreen()
+            }
         }
     }
     

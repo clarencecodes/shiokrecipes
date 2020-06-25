@@ -14,19 +14,15 @@ class AuthHelper {
     
     func login(email: String, password: String, completion: @escaping (Bool) -> Void) {
         
-        Auth.auth().signIn(withEmail: email, password: password) { [weak self] authResult, error in
-            guard let self = self else { return }
-            
+        Auth.auth().signIn(withEmail: email, password: password) { authResult, error in
             if error != nil {
                 Helper.app.showMessagePrompt(message: error!.localizedDescription)
                 completion(false)
                 return
             }
-            
             print("\(email) has signed in successfully.")
-            self.navigateToExploreScreen()
+            completion(true)
         }
-        completion(true)
     }
     
     func logout(completion: @escaping (Bool) -> Void) {
@@ -68,9 +64,30 @@ class AuthHelper {
                     completion(false)
                 } else {
                     print("Document added with ID: \(user.uid)")
-                    self.navigateToExploreScreen()
                     completion(true)
                 }
+            }
+        }
+    }
+    
+    func changePassword(currentPassword: String, newPassword: String, completion: @escaping (Bool) -> Void) {
+        guard let email = Auth.auth().currentUser?.email else { return }
+        
+        // Check if user's current password is correct before changing the password
+        self.login(email: email, password: currentPassword) { (success) in
+            if success {
+                Auth.auth().currentUser?.updatePassword(to: newPassword, completion: { (error) in
+                    if let error = error {
+                        Helper.app.showMessagePrompt(message: error.localizedDescription)
+                        completion(false)
+                    } else {
+                        Helper.app.showMessagePrompt(message: "Your password has been successfully updated.")
+                        completion(true)
+                    }
+                })
+            } else {
+                Helper.app.showMessagePrompt(message: "You have entered an invalid password.")
+                completion(false)
             }
         }
     }
