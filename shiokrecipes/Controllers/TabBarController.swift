@@ -29,6 +29,15 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         return item
     }()
     
+    let addTabBarItem: UITabBarItem = {
+        let item = UITabBarItem()
+        item.title = nil
+        // TODO: fix issue where image is aligned too much on top
+        item.image = UIImage(systemName: "plus.app",
+                             withConfiguration: UIImage.SymbolConfiguration(pointSize: 20, weight: .regular))
+        return item
+    }()
+    
     let favoritesTabBarItem: UITabBarItem = {
         let item = UITabBarItem()
         item.title = "Favorites"
@@ -47,6 +56,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     
     let exploreVc = ExploreViewController()
     let myRecipesVc = MyRecipesViewController()
+    let addVc = UIViewController()
     let favoritesVc = FavoritesViewController()
     let settingsVc = SettingsViewController()
     
@@ -55,10 +65,11 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
         
         exploreVc.tabBarItem = exploreTabBarItem
         myRecipesVc.tabBarItem = myRecipesTabBarItem
+        addVc.tabBarItem = addTabBarItem
         favoritesVc.tabBarItem = favoritesTabBarItem
         settingsVc.tabBarItem = settingsTabBarItem
         
-        self.viewControllers = [exploreVc, myRecipesVc, favoritesVc, settingsVc]
+        self.viewControllers = [exploreVc, myRecipesVc, addVc, favoritesVc, settingsVc]
         self.tabBar.tintColor = .black
     }
     
@@ -70,6 +81,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             vc.delegate = self
             let navigationController = UINavigationController(rootViewController: vc)
             self.present(navigationController, animated: true, completion: nil)
+        } else if item == addTabBarItem {
+            print("Present add a recipe screen")
         }
     }
     
@@ -80,6 +93,8 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
                 .withRenderingMode(.alwaysOriginal)
             
             settingsVc.tabBarItem.image = selectedImage
+            return false
+        } else if viewController == addVc {
             return false
         }
         return true
