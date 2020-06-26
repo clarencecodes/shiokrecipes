@@ -82,7 +82,7 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
             let navigationController = UINavigationController(rootViewController: vc)
             self.present(navigationController, animated: true, completion: nil)
         } else if item == addTabBarItem {
-            print("Present add a recipe screen")
+            self.showImagePickerControllerActionSheet()
         }
     }
     
@@ -101,8 +101,49 @@ class TabBarController: UITabBarController, UITabBarControllerDelegate {
     }
 }
 
+// MARK: - SettingsViewControllerDelegate
+
 extension TabBarController: SettingsViewControllerDelegate {
     func didDismissSettingsModal() {
         settingsVc.tabBarItem.image = UIImage(systemName: "gear")
+    }
+}
+
+// MARK: - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+
+extension TabBarController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func showImagePickerControllerActionSheet() {
+        let actionSheet = UIAlertController(title: "Add a recipe", message: "To start adding and sharing your recipe, start by uploading a photo of your dish.", preferredStyle: .actionSheet)
+        actionSheet.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.showImagePickerController(sourceType: .photoLibrary)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Take a new photo", style: .default, handler: { [weak self] _ in
+            guard let self = self else { return }
+            self.showImagePickerController(sourceType: .camera)
+        }))
+        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(actionSheet, animated: true, completion: nil)
+    }
+    
+    func showImagePickerController(sourceType: UIImagePickerController.SourceType) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        imagePickerController.allowsEditing = true
+        imagePickerController.sourceType = sourceType
+        self.present(imagePickerController, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
+            print("edited image")
+            print(editedImage)
+        } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            print("original image")
+            print(originalImage)
+        }
+        
+        self.dismiss(animated: true, completion: nil)
     }
 }
