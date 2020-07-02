@@ -114,15 +114,20 @@ extension TabBarController: SettingsViewControllerDelegate {
 extension TabBarController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showImagePickerControllerActionSheet() {
         let actionSheet = UIAlertController(title: "Add a recipe", message: Constants.Strings.uploadDishPhoto, preferredStyle: .actionSheet)
-        actionSheet.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { [weak self] _ in
+        
+        let libraryAction = UIAlertAction(title: "Choose from Library", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             self.showImagePickerController(sourceType: .photoLibrary)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Take a new photo", style: .default, handler: { [weak self] _ in
+        })
+        let cameraAction = UIAlertAction(title: "Take a new photo", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             self.showImagePickerController(sourceType: .camera)
-        }))
-        actionSheet.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        })
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        actionSheet.addAction(libraryAction)
+        actionSheet.addAction(cameraAction)
+        actionSheet.addAction(cancelAction)
         self.present(actionSheet, animated: true, completion: nil)
     }
     
@@ -130,8 +135,16 @@ extension TabBarController: UIImagePickerControllerDelegate, UINavigationControl
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         imagePickerController.allowsEditing = true
-        imagePickerController.sourceType = sourceType
-        self.present(imagePickerController, animated: true)
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+            imagePickerController.sourceType = sourceType
+            self.present(imagePickerController, animated: true)
+        } else {
+            if sourceType == .camera {
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: Constants.Strings.noCameraAvailable)
+            } else if sourceType == .photoLibrary {
+                self.showAlert(title: Constants.Strings.oopsAlertTitle, message: Constants.Strings.noPhotoLibraryAvailable)
+            }
+        }
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

@@ -96,6 +96,8 @@ struct Constants {
         static let saveRecipeDraftTitle = "Save as draft"
         static let saveRecipeDraftMessage = "Before closing this screen, would you like to save your recipe as a draft?"
         static let discardRecipe = "Discard"
+        static let noCameraAvailable = "Device has no camera."
+        static let noPhotoLibraryAvailable = "Photo library is not available."
     }
     
     
