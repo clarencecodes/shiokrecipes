@@ -92,6 +92,10 @@ struct Constants {
         static let resetPassword = "Reset Password"
         static let checkEmailToResetPassword = "Please check your email for a link to reset your password. :)"
         static let oopsAlertTitle = "Oops.."
+        static let uploadDishPhoto = "To start adding and sharing your recipe, start by uploading a photo of your dish."
+        static let saveRecipeDraftTitle = "Save as draft"
+        static let saveRecipeDraftMessage = "Before closing this screen, would you like to save your recipe as a draft?"
+        static let discardRecipe = "Discard"
     }
     
     

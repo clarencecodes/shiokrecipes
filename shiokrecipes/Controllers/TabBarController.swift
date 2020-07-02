@@ -113,7 +113,7 @@ extension TabBarController: SettingsViewControllerDelegate {
 
 extension TabBarController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func showImagePickerControllerActionSheet() {
-        let actionSheet = UIAlertController(title: "Add a recipe", message: "To start adding and sharing your recipe, start by uploading a photo of your dish.", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "Add a recipe", message: Constants.Strings.uploadDishPhoto, preferredStyle: .actionSheet)
         actionSheet.addAction(UIAlertAction(title: "Choose from Library", style: .default, handler: { [weak self] _ in
             guard let self = self else { return }
             self.showImagePickerController(sourceType: .photoLibrary)
@@ -136,14 +136,20 @@ extension TabBarController: UIImagePickerControllerDelegate, UINavigationControl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        var image: UIImage!
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             print("edited image")
-            print(editedImage)
+            image = editedImage
         } else if let originalImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
             print("original image")
-            print(originalImage)
+            image = originalImage
         }
         
-        self.dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: {
+            let vc = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
+            vc.modalPresentationStyle = .overFullScreen
+            vc.dishImage = image
+            self.present(vc, animated: true)
+        })
     }
 }

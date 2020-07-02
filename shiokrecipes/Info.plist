@@ -60,5 +60,7 @@
 	</array>
 	<key>NSCameraUsageDescription</key>
 	<string>Please allow camera access to upload images of dishes.</string>
+	<key>UIUserInterfaceStyle</key>
+	<string>Light</string>
 </dict>
 </plist>
