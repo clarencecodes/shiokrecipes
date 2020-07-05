@@ -36,6 +36,8 @@ class AddRecipeViewController: UIViewController {
             dishNameTextField.layer.borderColor = UIColor.lightGray.cgColor
             dishNameTextField.layer.borderWidth = 1
             dishNameTextField.layer.cornerRadius = 5
+            dishNameTextField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 5, height: 2))
+            dishNameTextField.leftViewMode = .always
             
             dishNameTextField.font = Constants.Design.Font.newYorkRegular.withSize(13)
         }
@@ -74,6 +76,11 @@ class AddRecipeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    
+    @objc private func dismissKeyboard() {
+        self.view.endEditing(true)
     }
     
     // MARK: - IBActions
