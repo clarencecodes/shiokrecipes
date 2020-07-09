@@ -10,6 +10,12 @@ import UIKit
 
 class AddRecipeIngredientsViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    private var prepTime = 30
+    private var cookTime = 15
+    private var ingredients = ["", "", ""]
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var addRecipeTitleLabel: UILabel! {
@@ -132,11 +138,11 @@ class AddRecipeIngredientsViewController: UIViewController {
 // MARK: - UITableViewDelegate/DataSource
 extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return ingredients.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 4 {
+        if indexPath.row == ingredients.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddIngredientCell") as! AddIngredientCell
             return cell
         }
@@ -149,4 +155,14 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
         return 60
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == ingredients.count {
+            print("last row selected")
+            ingredients.append("")
+            
+            tableView.beginUpdates()
+            tableView.insertRows(at: [IndexPath.init(row: ingredients.count - 1, section: 0)], with: .automatic)
+            tableView.endUpdates()
+        }
+    }
 }
