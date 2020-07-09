@@ -66,7 +66,7 @@
                     </subviews>
                 </stackView>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="xqx-Qi-Y9t">
-                    <rect key="frame" x="20" y="161.5" width="374" height="30"/>
+                    <rect key="frame" x="20" y="171.5" width="374" height="30"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="PREP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JH-qb-FRh">
                             <rect key="frame" x="0.0" y="0.0" width="50" height="30"/>
@@ -105,7 +105,7 @@
                     </subviews>
                 </stackView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ingredients needed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SLn-jv-92O">
-                    <rect key="frame" x="20" y="221.5" width="180" height="21"/>
+                    <rect key="frame" x="20" y="231.5" width="180" height="21"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="21" id="Rr8-98-3FC"/>
                         <constraint firstAttribute="width" constant="180" id="crt-0m-6fZ"/>
@@ -115,7 +115,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kdY-Ki-HB6">
-                    <rect key="frame" x="0.0" y="252.5" width="414" height="519.5"/>
+                    <rect key="frame" x="0.0" y="262.5" width="414" height="509.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jhd-kT-Al4">
@@ -147,7 +147,7 @@
             <color key="backgroundColor" red="0.95712834599999996" green="0.94546896219999998" blue="0.92441648239999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="xqx-Qi-Y9t" secondAttribute="trailing" constant="20" id="1ku-7N-9Lp"/>
-                <constraint firstItem="xqx-Qi-Y9t" firstAttribute="top" secondItem="e6t-Hd-zM2" secondAttribute="bottom" constant="10" id="356-Ox-l3N"/>
+                <constraint firstItem="xqx-Qi-Y9t" firstAttribute="top" secondItem="e6t-Hd-zM2" secondAttribute="bottom" constant="20" id="356-Ox-l3N"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="pvc-Qn-veg" secondAttribute="bottom" constant="25" id="5dg-cR-0xk"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="kdY-Ki-HB6" secondAttribute="trailing" id="7dc-dB-Xyc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="pvc-Qn-veg" secondAttribute="trailing" constant="40" id="8o0-le-4Nu"/>
