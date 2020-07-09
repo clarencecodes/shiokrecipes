@@ -13,6 +13,7 @@
                 <outlet property="cookLabel" destination="64n-bu-0iX" id="PEN-aq-KJZ"/>
                 <outlet property="ingredientsNeededLabel" destination="SLn-jv-92O" id="1py-uK-Jae"/>
                 <outlet property="prepLabel" destination="3JH-qb-FRh" id="ijP-r1-hFD"/>
+                <outlet property="tableView" destination="kdY-Ki-HB6" id="osW-Jn-jWZ"/>
                 <outlet property="timeNeededLabel" destination="iV6-BY-Pjn" id="bSx-Gb-ZbC"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -107,7 +108,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kdY-Ki-HB6">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kdY-Ki-HB6">
                     <rect key="frame" x="0.0" y="252.5" width="414" height="559.5"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </tableView>
