@@ -10,6 +10,27 @@ import UIKit
 
 class AddRecipeIngredientsViewController: UIViewController {
 
+    // MARK: - IBOutlets
+    @IBOutlet weak var addRecipeTitleLabel: UILabel! {
+        didSet {
+            addRecipeTitleLabel.font = Constants.Design.Font.newYorkBold.withSize(36)
+        }
+    }
+    
+    @IBOutlet weak var timeNeededLabel: UILabel! {
+        didSet {
+            timeNeededLabel.font = Constants.Design.Font.newYorkSemibold.withSize(18)
+        }
+    }
+    @IBOutlet weak var prepLabel: UILabel!
+    @IBOutlet weak var cookLabel: UILabel!
+    @IBOutlet weak var ingredientsNeededLabel: UILabel! {
+        didSet {
+            ingredientsNeededLabel.font = Constants.Design.Font.newYorkSemibold.withSize(18)
+        }
+    }
+    
+    // MARK: - View life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
