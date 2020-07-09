@@ -33,6 +33,7 @@ class AddRecipeIngredientsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(IngredientTextFieldCell.self, forCellReuseIdentifier: "IngredientTextFieldCell")
+            tableView.register(AddIngredientCell.self, forCellReuseIdentifier: "AddIngredientCell")
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -52,6 +53,11 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 4 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddIngredientCell") as! AddIngredientCell
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientTextFieldCell") as! IngredientTextFieldCell
         return cell
     }
