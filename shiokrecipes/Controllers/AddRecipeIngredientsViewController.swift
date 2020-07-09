@@ -14,7 +14,7 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     private var prepTime = 30
     private var cookTime = 15
-    private var ingredients = ["", "", ""]
+    private var ingredients = ["", "", "", "", ""]
     
     // MARK: - IBOutlets
     
@@ -95,7 +95,10 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
     }
     
     // MARK: - Class methods
@@ -159,7 +162,7 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 60
+        return 50
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -170,6 +173,21 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
             tableView.beginUpdates()
             tableView.insertRows(at: [IndexPath.init(row: ingredients.count - 1, section: 0)], with: .automatic)
             tableView.endUpdates()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                tableView.scrollToRow(at: IndexPath.init(row: self.ingredients.count, section: 0), at: .none, animated: true)
+            }
         }
+    }
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension AddRecipeIngredientsViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: tableView) ?? false {
+            return false
+        }
+        
+        return true
     }
 }
