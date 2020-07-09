@@ -95,6 +95,13 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard)))
+    }
+    
+    // MARK: - Class methods
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
     }
 
     // MARK: - IBActions
