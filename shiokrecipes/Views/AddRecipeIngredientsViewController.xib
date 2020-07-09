@@ -41,6 +41,9 @@
                     </constraints>
                     <color key="tintColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" image="xmark" catalog="system"/>
+                    <connections>
+                        <action selector="closeButtonTapped:" destination="-1" eventType="touchUpInside" id="hbK-hL-Cvt"/>
+                    </connections>
                 </button>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="e6t-Hd-zM2">
                     <rect key="frame" x="20" y="126.5" width="160" height="25"/>
@@ -84,6 +87,9 @@
                             </constraints>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="30 min"/>
+                            <connections>
+                                <action selector="prepTimeButtonTapped:" destination="-1" eventType="touchUpInside" id="Eqh-Fb-Xz9"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="COOK" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="64n-bu-0iX">
                             <rect key="frame" x="196" y="0.0" width="50" height="30"/>
@@ -101,6 +107,9 @@
                             </constraints>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <state key="normal" title="15 min"/>
+                            <connections>
+                                <action selector="cookTimeButtonTapped:" destination="-1" eventType="touchUpInside" id="dB8-Sb-4Jg"/>
+                            </connections>
                         </button>
                     </subviews>
                 </stackView>
@@ -126,6 +135,9 @@
                     </constraints>
                     <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Back"/>
+                    <connections>
+                        <action selector="backButtonTapped:" destination="-1" eventType="touchUpInside" id="i69-3B-zEk"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pvc-Qn-veg">
                     <rect key="frame" x="254" y="797" width="120" height="40"/>
@@ -135,6 +147,9 @@
                     </constraints>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <state key="normal" title="Next"/>
+                    <connections>
+                        <action selector="nextButtonTapped:" destination="-1" eventType="touchUpInside" id="uS9-Br-14J"/>
+                    </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GK7-iQ-OzM" userLabel="Line Separator">
                     <rect key="frame" x="0.0" y="771" width="414" height="1"/>

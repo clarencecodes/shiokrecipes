@@ -18,7 +18,7 @@ class IngredientTextFieldCell: UITableViewCell {
         textField.heightAnchor.constraint(equalToConstant: 40).isActive = true
         textField.layer.borderWidth = 1
         textField.layer.borderColor = UIColor.lightGray.cgColor
-        textField.layer.cornerRadius = 5
+        textField.layer.cornerRadius = 10
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
         textField.leftViewMode = .always
         textField.font = Constants.Design.Font.newYorkRegular.withSize(18)
