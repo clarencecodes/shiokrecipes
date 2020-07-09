@@ -11,6 +11,7 @@ import UIKit
 class AddRecipeIngredientsViewController: UIViewController {
 
     // MARK: - IBOutlets
+    
     @IBOutlet weak var addRecipeTitleLabel: UILabel! {
         didSet {
             addRecipeTitleLabel.font = Constants.Design.Font.newYorkBold.withSize(36)
@@ -39,6 +40,33 @@ class AddRecipeIngredientsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var backButton: UIButton! {
+        didSet {
+            backButton.layer.cornerRadius = CGFloat(10)
+            backButton.layer.borderColor = UIColor.lightGray.cgColor
+            backButton.layer.borderWidth = 1
+            
+            backButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(18)
+            backButton.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        }
+    }
+    
+    @IBOutlet weak var nextButton: UIButton! {
+        didSet {
+            nextButton.layer.cornerRadius = CGFloat(10)
+            nextButton.backgroundColor = Constants.Design.Color.orange
+            
+            nextButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(18)
+            nextButton.titleLabel?.textAlignment = .left
+            nextButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 50)
+            
+            nextButton.setImage(UIImage(systemName: "arrow.right.circle"), for: .normal)
+            nextButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 85, bottom: 0, right: 0)
+        }
+    }
+    
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -47,6 +75,7 @@ class AddRecipeIngredientsViewController: UIViewController {
 
 }
 
+// MARK: - UITableViewDelegate/DataSource
 extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 5
