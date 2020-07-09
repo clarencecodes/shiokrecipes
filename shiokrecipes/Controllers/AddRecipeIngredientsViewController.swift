@@ -23,8 +23,26 @@ class AddRecipeIngredientsViewController: UIViewController {
             timeNeededLabel.font = Constants.Design.Font.newYorkSemibold.withSize(18)
         }
     }
+    
     @IBOutlet weak var prepLabel: UILabel!
+    
+    @IBOutlet weak var prepTimeButton: UIButton! {
+        didSet {
+            prepTimeButton.layer.cornerRadius = prepTimeButton.frame.height / 2
+            prepTimeButton.layer.borderColor = UIColor.lightGray.cgColor
+            prepTimeButton.layer.borderWidth = 1
+        }
+    }
+    
     @IBOutlet weak var cookLabel: UILabel!
+    @IBOutlet weak var cookTimeButton: UIButton! {
+        didSet {
+            cookTimeButton.layer.cornerRadius = cookTimeButton.frame.height / 2
+            cookTimeButton.layer.borderColor = UIColor.lightGray.cgColor
+            cookTimeButton.layer.borderWidth = 1
+        }
+    }
+    
     @IBOutlet weak var ingredientsNeededLabel: UILabel! {
         didSet {
             ingredientsNeededLabel.font = Constants.Design.Font.newYorkSemibold.withSize(18)
