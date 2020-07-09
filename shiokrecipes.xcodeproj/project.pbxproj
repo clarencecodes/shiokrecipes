@@ -25,6 +25,8 @@
 		115716B0249F4BC30089031B /* SettingsTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */; };
 		115716B2249F5E130089031B /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716B1249F5E130089031B /* ChangePasswordViewController.swift */; };
 		115716B4249F68FD0089031B /* PasswordTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */; };
+		1166315824B1C05A0056D78E /* AddRecipeIngredientsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1166315624B1C05A0056D78E /* AddRecipeIngredientsViewController.swift */; };
+		1166315924B1C05A0056D78E /* AddRecipeIngredientsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1166315724B1C05A0056D78E /* AddRecipeIngredientsViewController.xib */; };
 		117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 117C4E722494B01D00E97466 /* GoogleService-Info.plist */; };
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
@@ -60,6 +62,8 @@
 		115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTextFieldCell.swift; sourceTree = "<group>"; };
 		115716B1249F5E130089031B /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTextFieldCell.swift; sourceTree = "<group>"; };
+		1166315624B1C05A0056D78E /* AddRecipeIngredientsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeIngredientsViewController.swift; sourceTree = "<group>"; };
+		1166315724B1C05A0056D78E /* AddRecipeIngredientsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeIngredientsViewController.xib; sourceTree = "<group>"; };
 		117C4E722494B01D00E97466 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
@@ -132,6 +136,7 @@
 				115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */,
 				115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */,
 				11E5901B24A60C86006C66C5 /* AddRecipeViewController.xib */,
+				1166315724B1C05A0056D78E /* AddRecipeIngredientsViewController.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -151,6 +156,7 @@
 				115716AD249F49B60089031B /* AccountSettingsViewController.swift */,
 				115716B1249F5E130089031B /* ChangePasswordViewController.swift */,
 				11E5901A24A60C86006C66C5 /* AddRecipeViewController.swift */,
+				1166315624B1C05A0056D78E /* AddRecipeIngredientsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -255,6 +261,7 @@
 				11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */,
 				117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */,
 				112AA0272490CB4700A4D822 /* LoginViewController.xib in Resources */,
+				1166315924B1C05A0056D78E /* AddRecipeIngredientsViewController.xib in Resources */,
 				11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */,
 				112AA01D2490BACE00A4D822 /* LaunchScreen.storyboard in Resources */,
 				11E5901D24A60C86006C66C5 /* AddRecipeViewController.xib in Resources */,
@@ -323,6 +330,7 @@
 				11E5901924A486DE006C66C5 /* Extension+UIViewController.swift in Sources */,
 				112AA0262490CB4700A4D822 /* LoginViewController.swift in Sources */,
 				11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */,
+				1166315824B1C05A0056D78E /* AddRecipeIngredientsViewController.swift in Sources */,
 				115716B4249F68FD0089031B /* PasswordTextFieldCell.swift in Sources */,
 				115716A9249E5D380089031B /* SettingsViewController.swift in Sources */,
 				11E5901C24A60C86006C66C5 /* AddRecipeViewController.swift in Sources */,
