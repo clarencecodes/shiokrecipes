@@ -33,6 +33,9 @@
 		11865DA42490F49500FC3743 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA32490F49500FC3743 /* AppConstants.swift */; };
 		11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11865DA524911F5300FC3743 /* SignupViewController.swift */; };
 		11865DA824911F5300FC3743 /* SignupViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11865DA624911F5300FC3743 /* SignupViewController.xib */; };
+		11BB616324BD702800B33CA5 /* AddRecipeDirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB616124BD702800B33CA5 /* AddRecipeDirectionsViewController.swift */; };
+		11BB616424BD702800B33CA5 /* AddRecipeDirectionsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11BB616224BD702800B33CA5 /* AddRecipeDirectionsViewController.xib */; };
+		11BB616624BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11BB616524BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift */; };
 		11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */; };
 		11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */; };
 		11DA96012492390D00FF6C19 /* RecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */; };
@@ -72,6 +75,9 @@
 		11865DA32490F49500FC3743 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		11865DA524911F5300FC3743 /* SignupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignupViewController.swift; sourceTree = "<group>"; };
 		11865DA624911F5300FC3743 /* SignupViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SignupViewController.xib; sourceTree = "<group>"; };
+		11BB616124BD702800B33CA5 /* AddRecipeDirectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeDirectionsViewController.swift; sourceTree = "<group>"; };
+		11BB616224BD702800B33CA5 /* AddRecipeDirectionsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeDirectionsViewController.xib; sourceTree = "<group>"; };
+		11BB616524BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDirectionTextViewCell.swift; sourceTree = "<group>"; };
 		11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
 		11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForgotPasswordViewController.xib; sourceTree = "<group>"; };
 		11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,8 @@
 				1166315724B1C05A0056D78E /* AddRecipeIngredientsViewController.xib */,
 				11143C8924B6E94700CBE00D /* IngredientTextFieldCell.swift */,
 				11143C8B24B7014200CBE00D /* AddIngredientCell.swift */,
+				11BB616224BD702800B33CA5 /* AddRecipeDirectionsViewController.xib */,
+				11BB616524BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -163,6 +171,7 @@
 				115716B1249F5E130089031B /* ChangePasswordViewController.swift */,
 				11E5901A24A60C86006C66C5 /* AddRecipeViewController.swift */,
 				1166315624B1C05A0056D78E /* AddRecipeIngredientsViewController.swift */,
+				11BB616124BD702800B33CA5 /* AddRecipeDirectionsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -274,6 +283,7 @@
 				112AA01A2490BACE00A4D822 /* Assets.xcassets in Resources */,
 				11DA96022492390D00FF6C19 /* RecipeViewController.xib in Resources */,
 				112AA0182490BACD00A4D822 /* Main.storyboard in Resources */,
+				11BB616424BD702800B33CA5 /* AddRecipeDirectionsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -332,6 +342,7 @@
 				1130EFF824935F3A007B5290 /* ExploreViewController.swift in Sources */,
 				115716B2249F5E130089031B /* ChangePasswordViewController.swift in Sources */,
 				11143C8C24B7014200CBE00D /* AddIngredientCell.swift in Sources */,
+				11BB616324BD702800B33CA5 /* AddRecipeDirectionsViewController.swift in Sources */,
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
 				11143C8A24B6E94700CBE00D /* IngredientTextFieldCell.swift in Sources */,
 				11DA95FB2491E9C700FF6C19 /* ForgotPasswordViewController.swift in Sources */,
@@ -341,6 +352,7 @@
 				1166315824B1C05A0056D78E /* AddRecipeIngredientsViewController.swift in Sources */,
 				115716B4249F68FD0089031B /* PasswordTextFieldCell.swift in Sources */,
 				115716A9249E5D380089031B /* SettingsViewController.swift in Sources */,
+				11BB616624BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift in Sources */,
 				11E5901C24A60C86006C66C5 /* AddRecipeViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
 				115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */,

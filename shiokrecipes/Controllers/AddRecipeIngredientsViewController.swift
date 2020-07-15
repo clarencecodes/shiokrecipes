@@ -127,6 +127,8 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         print("nextButtonTapped")
+        let vc = AddRecipeDirectionsViewController(nibName: "AddRecipeDirectionsViewController", bundle: nil)
+        self.navigationController?.pushViewController(vc, animated: true)
     }
     
     @IBAction func backButtonTapped(_ sender: UIButton) {
