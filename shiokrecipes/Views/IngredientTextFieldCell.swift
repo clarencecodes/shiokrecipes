@@ -22,6 +22,7 @@ class IngredientTextFieldCell: UITableViewCell {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 10, height: 2))
         textField.leftViewMode = .always
         textField.font = Constants.Design.Font.newYorkRegular.withSize(18)
+        textField.backgroundColor = .white
         return textField
     }()
     

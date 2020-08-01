@@ -28,6 +28,8 @@ class RecipeDirectionTextViewCell: UITableViewCell {
         textView.layer.borderColor = UIColor.lightGray.cgColor
         textView.layer.borderWidth = 1
         textView.layer.cornerRadius = 5
+        textView.textContainerInset = UIEdgeInsets(top: 5, left: 5, bottom: 5, right: 5)
+        textView.font = Constants.Design.Font.newYorkRegular.withSize(18)
         return textView
     }()
     
