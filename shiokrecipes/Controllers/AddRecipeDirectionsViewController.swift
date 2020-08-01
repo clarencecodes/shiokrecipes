@@ -33,6 +33,27 @@ class AddRecipeDirectionsViewController: UIViewController {
         }
     }
     
+    @IBOutlet weak var backButton: UIButton! {
+        didSet {
+            backButton.layer.cornerRadius = CGFloat(10)
+            backButton.layer.borderColor = UIColor.lightGray.cgColor
+            backButton.layer.borderWidth = 1
+            
+            backButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(18)
+            backButton.setImage(UIImage(systemName: "arrow.left"), for: .normal)
+            backButton.imageEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 10)
+        }
+    }
+    
+    @IBOutlet weak var addRecipeButton: UIButton! {
+        didSet {
+            addRecipeButton.backgroundColor = Constants.Design.Color.orange
+            addRecipeButton.layer.cornerRadius = CGFloat(10)
+            
+            addRecipeButton.titleLabel?.font = Constants.Design.Font.newYorkBold.withSize(18)
+        }
+    }
+    
     // MARK: - IBActions
     
     @IBAction func closeButtonTapped(_ sender: UIButton) {
@@ -49,6 +70,14 @@ class AddRecipeDirectionsViewController: UIViewController {
         alert.addAction(discardAction)
         alert.addAction(saveDraftAction)
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    @IBAction func backButtonTapped(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func addRecipeButtonTapped(_ sender: UIButton) {
+        print(addRecipeButtonTapped)
     }
     
     // MARK: - View life cycle
