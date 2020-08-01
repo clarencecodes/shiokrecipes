@@ -17,7 +17,7 @@ class RecipeDirectionTextViewCell: UITableViewCell {
         lb.translatesAutoresizingMaskIntoConstraints = false
         lb.heightAnchor.constraint(equalToConstant: 16).isActive = true
         lb.widthAnchor.constraint(equalToConstant: 60).isActive = true
-        lb.textColor = .lightGray
+        lb.textColor = .darkGray
         lb.font = .systemFont(ofSize: 13)
         return lb
     }()
@@ -60,8 +60,10 @@ class RecipeDirectionTextViewCell: UITableViewCell {
             stepLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 10),
             stepLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
             
+            textView.topAnchor.constraint(equalTo: stepLabel.bottomAnchor, constant: 10),
+            textView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
             textView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 20),
-            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 20)
+            textView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20)
         ])
     }
 }
