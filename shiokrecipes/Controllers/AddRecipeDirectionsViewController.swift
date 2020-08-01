@@ -33,6 +33,25 @@ class AddRecipeDirectionsViewController: UIViewController {
         }
     }
     
+    // MARK: - IBActions
+    
+    @IBAction func closeButtonTapped(_ sender: UIButton) {
+        let alert = UIAlertController(title: Constants.Strings.saveRecipeDraftTitle + "?", message: Constants.Strings.saveRecipeDraftMessage, preferredStyle: .alert)
+        let discardAction = UIAlertAction(title: Constants.Strings.discardRecipe, style: .destructive) { [weak self] _ in
+            guard let self = self else { return }
+            
+            print("discard recipe")
+            self.dismiss(animated: true, completion: nil)
+        }
+        let saveDraftAction = UIAlertAction(title: Constants.Strings.saveRecipeDraftTitle, style: .default) { _ in
+            print("save recipe as draft")
+        }
+        alert.addAction(discardAction)
+        alert.addAction(saveDraftAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+    
+    // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
