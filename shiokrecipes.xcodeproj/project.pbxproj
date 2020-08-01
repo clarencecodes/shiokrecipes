@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		11143C8A24B6E94700CBE00D /* IngredientTextFieldCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11143C8924B6E94700CBE00D /* IngredientTextFieldCell.swift */; };
-		11143C8C24B7014200CBE00D /* AddIngredientCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11143C8B24B7014200CBE00D /* AddIngredientCell.swift */; };
+		11143C8C24B7014200CBE00D /* AddButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11143C8B24B7014200CBE00D /* AddButtonCell.swift */; };
 		112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0102490BACD00A4D822 /* AppDelegate.swift */; };
 		112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 112AA0122490BACD00A4D822 /* SceneDelegate.swift */; };
 		112AA0182490BACD00A4D822 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 112AA0162490BACD00A4D822 /* Main.storyboard */; };
@@ -48,7 +48,7 @@
 
 /* Begin PBXFileReference section */
 		11143C8924B6E94700CBE00D /* IngredientTextFieldCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IngredientTextFieldCell.swift; sourceTree = "<group>"; };
-		11143C8B24B7014200CBE00D /* AddIngredientCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddIngredientCell.swift; sourceTree = "<group>"; };
+		11143C8B24B7014200CBE00D /* AddButtonCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButtonCell.swift; sourceTree = "<group>"; };
 		112AA00D2490BACD00A4D822 /* shiokrecipes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = shiokrecipes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		112AA0102490BACD00A4D822 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		112AA0122490BACD00A4D822 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -148,7 +148,7 @@
 				11E5901B24A60C86006C66C5 /* AddRecipeViewController.xib */,
 				1166315724B1C05A0056D78E /* AddRecipeIngredientsViewController.xib */,
 				11143C8924B6E94700CBE00D /* IngredientTextFieldCell.swift */,
-				11143C8B24B7014200CBE00D /* AddIngredientCell.swift */,
+				11143C8B24B7014200CBE00D /* AddButtonCell.swift */,
 				11BB616224BD702800B33CA5 /* AddRecipeDirectionsViewController.xib */,
 				11BB616524BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift */,
 			);
@@ -341,7 +341,7 @@
 				11865DA724911F5300FC3743 /* SignupViewController.swift in Sources */,
 				1130EFF824935F3A007B5290 /* ExploreViewController.swift in Sources */,
 				115716B2249F5E130089031B /* ChangePasswordViewController.swift in Sources */,
-				11143C8C24B7014200CBE00D /* AddIngredientCell.swift in Sources */,
+				11143C8C24B7014200CBE00D /* AddButtonCell.swift in Sources */,
 				11BB616324BD702800B33CA5 /* AddRecipeDirectionsViewController.swift in Sources */,
 				1130EFFA24935FFB007B5290 /* MyRecipesViewController.swift in Sources */,
 				11143C8A24B6E94700CBE00D /* IngredientTextFieldCell.swift in Sources */,

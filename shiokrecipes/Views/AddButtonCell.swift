@@ -8,18 +8,16 @@
 
 import UIKit
 
-class AddIngredientCell: UITableViewCell {
+class AddButtonCell: UITableViewCell {
 
     // MARK: - Views
     
     lazy var label: UILabel = {
         let lb = UILabel()
         lb.translatesAutoresizingMaskIntoConstraints = false
-        lb.widthAnchor.constraint(equalToConstant: 125).isActive = true
         lb.heightAnchor.constraint(equalToConstant: 21).isActive = true
         lb.textAlignment = .center
         lb.font = .systemFont(ofSize: 18)
-        lb.text = "Add ingredient"
         return lb
     }()
     
@@ -60,7 +58,7 @@ class AddIngredientCell: UITableViewCell {
         NSLayoutConstraint.activate([
             label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor, constant: -20),
             label.centerYAnchor.constraint(equalTo: contentView.centerYAnchor),
-            plusCircle.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 20),
+            plusCircle.leadingAnchor.constraint(equalTo: label.trailingAnchor, constant: 10),
             plusCircle.centerYAnchor.constraint(equalTo: contentView.centerYAnchor)
         ])
     }

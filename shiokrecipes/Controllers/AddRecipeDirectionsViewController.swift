@@ -27,6 +27,7 @@ class AddRecipeDirectionsViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.register(RecipeDirectionTextViewCell.self, forCellReuseIdentifier: "RecipeDirectionTextViewCell")
+            tableView.register(AddButtonCell.self, forCellReuseIdentifier: "AddButtonCell")
             tableView.delegate = self
             tableView.dataSource = self
         }
@@ -45,14 +46,23 @@ class AddRecipeDirectionsViewController: UIViewController {
 // MARK: - UITableViewDelegate/DataSource
 extension AddRecipeDirectionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        return 3
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.row == 2 {
+            return 50
+        }
         return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if indexPath.row == 2 {
+            let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell") as! AddButtonCell
+            cell.label.text = "Add step"
+            return cell
+        }
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeDirectionTextViewCell") as! RecipeDirectionTextViewCell
         cell.stepLabel.text = "STEP \(indexPath.row + 1)"
         return cell
