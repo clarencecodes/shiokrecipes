@@ -14,6 +14,9 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     var recipe: Recipe!
     
+    private let prepTimePicker = UIPickerView()
+    private let cookTimePicker = UIPickerView()
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var addRecipeTitleLabel: UILabel! {
@@ -30,20 +33,33 @@ class AddRecipeIngredientsViewController: UIViewController {
     
     @IBOutlet weak var prepLabel: UILabel!
     
-    @IBOutlet weak var prepTimeButton: UIButton! {
+    @IBOutlet weak var prepTimeTextField: UITextField! {
         didSet {
-            prepTimeButton.layer.cornerRadius = prepTimeButton.frame.height / 2
-            prepTimeButton.layer.borderColor = UIColor.lightGray.cgColor
-            prepTimeButton.layer.borderWidth = 1
+            prepTimeTextField.layer.cornerRadius = prepTimeTextField.frame.height / 2
+            prepTimeTextField.layer.borderColor = UIColor.lightGray.cgColor
+            prepTimeTextField.layer.borderWidth = 1
+            
+            // Hide the textField's blinking cursor
+            prepTimeTextField.tintColor = .clear
+            
+            prepTimeTextField.text = "\(self.recipe.prepTimeInMinutes) min"
+            prepTimeTextField.inputView = prepTimePicker
         }
     }
     
     @IBOutlet weak var cookLabel: UILabel!
-    @IBOutlet weak var cookTimeButton: UIButton! {
+    
+    @IBOutlet weak var cookTimeTextField: UITextField! {
         didSet {
-            cookTimeButton.layer.cornerRadius = cookTimeButton.frame.height / 2
-            cookTimeButton.layer.borderColor = UIColor.lightGray.cgColor
-            cookTimeButton.layer.borderWidth = 1
+            cookTimeTextField.layer.cornerRadius = cookTimeTextField.frame.height / 2
+            cookTimeTextField.layer.borderColor = UIColor.lightGray.cgColor
+            cookTimeTextField.layer.borderWidth = 1
+            
+            // Hide the textField's blinking cursor
+            cookTimeTextField.tintColor = .clear
+            
+            cookTimeTextField.text = "\(self.recipe.cookTimeInMinutes) min"
+            cookTimeTextField.inputView = cookTimePicker
         }
     }
     
@@ -97,6 +113,12 @@ class AddRecipeIngredientsViewController: UIViewController {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         tapGesture.delegate = self
         view.addGestureRecognizer(tapGesture)
+        
+        prepTimePicker.delegate = self
+        prepTimePicker.dataSource = self
+        
+        cookTimePicker.delegate = self
+        cookTimePicker.dataSource = self
     }
     
     // MARK: - Class methods
@@ -133,15 +155,6 @@ class AddRecipeIngredientsViewController: UIViewController {
     @IBAction func backButtonTapped(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
-    @IBAction func prepTimeButtonTapped(_ sender: UIButton) {
-        print("prepTimeButtonTapped")
-    }
-    
-    @IBAction func cookTimeButtonTapped(_ sender: UIButton) {
-        print("cookTimeButtonTapped")
-    }
-    
     
     
 }
@@ -201,4 +214,32 @@ extension AddRecipeIngredientsViewController: UITextFieldDelegate {
     func textFieldDidEndEditing(_ textField: UITextField) {
         recipe.ingredients[textField.tag] = textField.text ?? ""
     }
+}
+
+
+// MARK: - UIPickerViewDelegate & DataSource
+extension AddRecipeIngredientsViewController: UIPickerViewDelegate, UIPickerViewDataSource {
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return 24
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return String(format: "%2d min", (row+1)*5)
+    }
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch pickerView {
+        case prepTimePicker:
+            prepTimeTextField.text = String(format: "%2d min", (row+1)*5)
+        case cookTimePicker:
+            cookTimeTextField.text = String(format: "%2d min", (row+1)*5)
+        default:
+            break
+        }
+    }
+    
 }
