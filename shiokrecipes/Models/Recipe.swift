@@ -23,7 +23,7 @@ struct Recipe {
         self.description = ""
         self.prepTimeInMinutes = 30
         self.cookTimeInMinutes = 15
-        self.ingredients = [String]()
-        self.directions = [String]()
+        self.ingredients = Array<String>(repeating: "", count: 5)
+        self.directions = Array<String>(repeating: "", count: 2)
     }
 }
