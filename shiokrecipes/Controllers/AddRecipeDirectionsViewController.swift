@@ -82,6 +82,10 @@ class AddRecipeDirectionsViewController: UIViewController {
     
     @IBAction func addRecipeButtonTapped(_ sender: UIButton) {
         print("addRecipeButtonTapped")
+        // Filter out empty strings within recipe ingredients and directions
+        recipe.ingredients = recipe.ingredients.filter({ !$0.isEmpty })
+        recipe.directions = recipe.directions.filter({ !$0.isEmpty })
+        
         // TODO: make Firebase API call here
         print(recipe as Any)
     }
@@ -91,27 +95,45 @@ class AddRecipeDirectionsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        tapGesture.delegate = self
+        view.addGestureRecognizer(tapGesture)
     }
 
+    // MARK: - Class methods
+    
+    @objc private func dismissKeyboard() {
+        view.endEditing(true)
+    }
 
+}
+
+// MARK: - UIGestureRecognizerDelegate
+extension AddRecipeDirectionsViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldReceive touch: UITouch) -> Bool {
+        if touch.view?.isDescendant(of: tableView) ?? false {
+            return false
+        }
+        
+        return true
+    }
 }
 
 // MARK: - UITableViewDelegate/DataSource
 extension AddRecipeDirectionsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 3
+        return recipe.directions.count + 1
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        if indexPath.row == 2 {
+        if indexPath.row == recipe.directions.count {
             return 50
         }
         return 150
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == 2 {
+        if indexPath.row == recipe.directions.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell") as! AddButtonCell
             cell.label.text = "Add step"
             return cell
@@ -119,8 +141,31 @@ extension AddRecipeDirectionsViewController: UITableViewDelegate, UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "RecipeDirectionTextViewCell") as! RecipeDirectionTextViewCell
         cell.stepLabel.text = "STEP \(indexPath.row + 1)"
+        cell.textView.delegate = self
+        cell.textView.tag = indexPath.row
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == recipe.directions.count {
+            print("last row selected")
+            recipe.directions.append("")
+            
+            tableView.beginUpdates()
+            tableView.insertRows(at: [IndexPath.init(row: recipe.directions.count - 1, section: 0)], with: .automatic)
+            tableView.endUpdates()
+            
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
+                tableView.scrollToRow(at: IndexPath.init(row: self.recipe.directions.count, section: 0), at: .none, animated: true)
+            }
+        }
+    }
     
+}
+
+// MARK: - UITextViewDelegate
+extension AddRecipeDirectionsViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        recipe.directions[textView.tag] = textView.text
+    }
 }

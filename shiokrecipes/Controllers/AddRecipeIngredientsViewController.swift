@@ -160,6 +160,8 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
         }
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "IngredientTextFieldCell") as! IngredientTextFieldCell
+        cell.textField.delegate = self
+        cell.textField.tag = indexPath.row
         return cell
     }
     
@@ -191,5 +193,12 @@ extension AddRecipeIngredientsViewController: UIGestureRecognizerDelegate {
         }
         
         return true
+    }
+}
+
+// MARK: - UITextFieldDelegate
+extension AddRecipeIngredientsViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        recipe.ingredients[textField.tag] = textField.text ?? ""
     }
 }
