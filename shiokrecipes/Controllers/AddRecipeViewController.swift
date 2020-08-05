@@ -40,6 +40,8 @@ class AddRecipeViewController: UIViewController {
             dishNameTextField.leftViewMode = .always
             
             dishNameTextField.font = Constants.Design.Font.newYorkRegular.withSize(13)
+            
+            dishNameTextField.delegate = self
         }
     }
     
@@ -57,6 +59,8 @@ class AddRecipeViewController: UIViewController {
             aboutRecipeTextView.layer.cornerRadius = 5
             
             aboutRecipeTextView.font = Constants.Design.Font.newYorkRegular.withSize(13)
+            
+            aboutRecipeTextView.delegate = self
         }
     }
     
@@ -109,4 +113,20 @@ class AddRecipeViewController: UIViewController {
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
+}
+
+extension AddRecipeViewController: UITextFieldDelegate {
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == dishNameTextField {
+            self.recipe.name = textField.text ?? ""
+        }
+    }
+}
+
+extension AddRecipeViewController: UITextViewDelegate {
+    func textViewDidEndEditing(_ textView: UITextView) {
+        if textView == aboutRecipeTextView {
+            self.recipe.description = textView.text
+        }
+    }
 }
