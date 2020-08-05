@@ -77,7 +77,7 @@ class AddRecipeDirectionsViewController: UIViewController {
     }
     
     @IBAction func addRecipeButtonTapped(_ sender: UIButton) {
-        print(addRecipeButtonTapped)
+        print("addRecipeButtonTapped")
     }
     
     // MARK: - View life cycle
