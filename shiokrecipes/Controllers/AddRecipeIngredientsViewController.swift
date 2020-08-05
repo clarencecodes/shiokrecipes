@@ -12,9 +12,7 @@ class AddRecipeIngredientsViewController: UIViewController {
 
     // MARK: - Properties
     
-    private var prepTime = 30
-    private var cookTime = 15
-    private var ingredients = ["", "", "", "", ""]
+    var recipe: Recipe!
     
     // MARK: - IBOutlets
     
@@ -128,6 +126,7 @@ class AddRecipeIngredientsViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         print("nextButtonTapped")
         let vc = AddRecipeDirectionsViewController(nibName: "AddRecipeDirectionsViewController", bundle: nil)
+        vc.recipe = recipe
         self.navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -150,11 +149,11 @@ class AddRecipeIngredientsViewController: UIViewController {
 // MARK: - UITableViewDelegate/DataSource
 extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return ingredients.count + 1
+        return recipe.ingredients.count + 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        if indexPath.row == ingredients.count {
+        if indexPath.row == recipe.ingredients.count {
             let cell = tableView.dequeueReusableCell(withIdentifier: "AddButtonCell") as! AddButtonCell
             cell.label.text = "Add ingredient"
             return cell
@@ -169,16 +168,16 @@ extension AddRecipeIngredientsViewController: UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        if indexPath.row == ingredients.count {
+        if indexPath.row == recipe.ingredients.count {
             print("last row selected")
-            ingredients.append("")
+            recipe.ingredients.append("")
             
             tableView.beginUpdates()
-            tableView.insertRows(at: [IndexPath.init(row: ingredients.count - 1, section: 0)], with: .automatic)
+            tableView.insertRows(at: [IndexPath.init(row: recipe.ingredients.count - 1, section: 0)], with: .automatic)
             tableView.endUpdates()
             
             DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.2) {
-                tableView.scrollToRow(at: IndexPath.init(row: self.ingredients.count, section: 0), at: .none, animated: true)
+                tableView.scrollToRow(at: IndexPath.init(row: self.recipe.ingredients.count, section: 0), at: .none, animated: true)
             }
         }
     }

@@ -160,7 +160,9 @@ extension TabBarController: UIImagePickerControllerDelegate, UINavigationControl
         
         self.dismiss(animated: true, completion: {
             let vc = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
-            vc.dishImage = image
+            var recipe = Recipe()
+            recipe.image = image
+            vc.recipe = recipe
             
             let navigationController = UINavigationController(rootViewController: vc)
             navigationController.modalPresentationStyle = .overFullScreen

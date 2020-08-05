@@ -20,7 +20,7 @@ class AddRecipeViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView! {
         didSet {
-            imageView.image = dishImage
+            imageView.image = recipe.image
         }
     }
     
@@ -70,7 +70,7 @@ class AddRecipeViewController: UIViewController {
     
     // MARK: - Properties
     
-    var dishImage: UIImage!
+    var recipe: Recipe!
     
     // MARK: - View life cycle
     
@@ -105,6 +105,7 @@ class AddRecipeViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         print("nextButtonTapped")
         let vc = AddRecipeIngredientsViewController(nibName: "AddRecipeIngredientsViewController", bundle: nil)
+        vc.recipe = self.recipe
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

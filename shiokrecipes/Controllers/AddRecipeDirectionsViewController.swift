@@ -10,6 +10,10 @@ import UIKit
 
 class AddRecipeDirectionsViewController: UIViewController {
 
+    // MARK: - Properties
+    
+    var recipe: Recipe!
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var addRecipeTitleLabel: UILabel! {
@@ -78,6 +82,8 @@ class AddRecipeDirectionsViewController: UIViewController {
     
     @IBAction func addRecipeButtonTapped(_ sender: UIButton) {
         print("addRecipeButtonTapped")
+        // TODO: make Firebase API call here
+        print(recipe as Any)
     }
     
     // MARK: - View life cycle
