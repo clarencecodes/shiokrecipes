@@ -17,6 +17,21 @@ class AddRecipeIngredientsViewController: UIViewController {
     private let prepTimePicker = UIPickerView()
     private let cookTimePicker = UIPickerView()
     
+    private lazy var doneToolbar: UIToolbar = {
+        let toolbar = UIToolbar()
+        toolbar.barStyle = UIBarStyle.default
+        toolbar.isTranslucent = true
+        toolbar.sizeToFit()
+        
+        let doneButton = UIBarButtonItem(title: "Done", style: UIBarButtonItem.Style.done, target: self, action: #selector(dismissKeyboard))
+        let spaceButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([spaceButton, doneButton], animated: false)
+        toolbar.isUserInteractionEnabled = true
+        
+        return toolbar
+    }()
+    
     // MARK: - IBOutlets
     
     @IBOutlet weak var addRecipeTitleLabel: UILabel! {
@@ -117,10 +132,12 @@ class AddRecipeIngredientsViewController: UIViewController {
         prepTimePicker.delegate = self
         prepTimePicker.dataSource = self
         prepTimePicker.selectRow(5, inComponent: 0, animated: false) // Set default prep time to 30 min
+        prepTimeTextField.inputAccessoryView = doneToolbar
         
         cookTimePicker.delegate = self
         cookTimePicker.dataSource = self
         cookTimePicker.selectRow(2, inComponent: 0, animated: false) // Set default cook time to 15 min
+        cookTimeTextField.inputAccessoryView = doneToolbar
     }
     
     // MARK: - Class methods
