@@ -32,7 +32,7 @@ class AddRecipeViewController: UIViewController {
     
     @IBOutlet weak var dishNameTextField: UITextField! {
         didSet {
-            dishNameTextField.backgroundColor = .clear
+            dishNameTextField.backgroundColor = .white
             dishNameTextField.layer.borderColor = UIColor.lightGray.cgColor
             dishNameTextField.layer.borderWidth = 1
             dishNameTextField.layer.cornerRadius = 5
@@ -53,7 +53,7 @@ class AddRecipeViewController: UIViewController {
     
     @IBOutlet weak var aboutRecipeTextView: UITextView! {
         didSet {
-            aboutRecipeTextView.backgroundColor = .clear
+            aboutRecipeTextView.backgroundColor = .white
             aboutRecipeTextView.layer.borderColor = UIColor.lightGray.cgColor
             aboutRecipeTextView.layer.borderWidth = 1
             aboutRecipeTextView.layer.cornerRadius = 5
