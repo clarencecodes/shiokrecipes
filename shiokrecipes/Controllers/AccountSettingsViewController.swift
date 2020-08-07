@@ -22,30 +22,13 @@ class AccountSettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let db = Firestore.firestore()
-        let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
-        
-        self.showSpinner()
-        userIdRef.getDocument { [weak self] (document, error) in
-            guard let self = self else { return }
-            
-            self.hideSpinner()
-            
-            if let document = document, document.exists {
-                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
-                
-                self.firstName = (document.get("first_name") as! String)
-                self.lastName = (document.get("last_name") as! String)
-                self.email = Auth.auth().currentUser!.email
-                
-                self.tableView.reloadData()
-                
-            } else {
-                print("Document does not exist")
-            }
+        self.email = Auth.auth().currentUser!.email
+        if let fullNameArr = Auth.auth().currentUser?.displayName?.components(separatedBy: " ") {
+            self.firstName = fullNameArr[0]
+            self.lastName = fullNameArr[1]
+            self.tableView.reloadData()
         }
-        
+                
         tableView.register(SettingsTextFieldCell.self, forCellReuseIdentifier: "SettingsTextFieldCell")
 
         self.title = "Account"
@@ -53,13 +36,14 @@ class AccountSettingsViewController: UITableViewController {
         self.navigationItem.rightBarButtonItem = saveButton
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
+    }
+    
     // MARK: - Save changes to Firebase
     
     @objc private func saveAccountDetailChanges() {
         print("saveAccountDetailChanges")
-        
-        let db = Firestore.firestore()
-        let userIdRef = db.collection("users").document(Auth.auth().currentUser!.uid)
         
         guard let updatedFirstName = (tableView.visibleCells[0] as? SettingsTextFieldCell)?.textField.text,
             let updatedLastName = (tableView.visibleCells[1] as? SettingsTextFieldCell)?.textField.text,
@@ -69,14 +53,14 @@ class AccountSettingsViewController: UITableViewController {
                 return
         }
         
-        userIdRef.setData([
-            "first_name": updatedFirstName,
-            "last_name": updatedLastName
-        ]) { error in
+        let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        let displayName = "\(updatedFirstName) \(updatedLastName)"
+            changeRequest?.displayName = displayName
+        changeRequest?.commitChanges { (error) in
             if let error = error {
-                print("Error writing document: \(error)")
+                print("Error updating user's display name: \(error)")
             } else {
-                print("Document successfully written!")
+                print("Updated user's name to \(displayName)")
                 self.dismiss(animated: true, completion: nil)
             }
         }
@@ -94,6 +78,7 @@ class AccountSettingsViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SettingsTextFieldCell", for: indexPath) as! SettingsTextFieldCell
+        cell.textField.delegate = self
         
         switch indexPath.row {
         case 0:
@@ -169,4 +154,17 @@ class AccountSettingsViewController: UITableViewController {
     }
     */
 
+}
+
+// MARK: - UITextFieldDelegate
+extension AccountSettingsViewController: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        
+        // Do not allow user to type in a whitespace when editing firstName or lastName
+        
+        if string == " " {
+            return false
+        }
+        return true
+    }
 }

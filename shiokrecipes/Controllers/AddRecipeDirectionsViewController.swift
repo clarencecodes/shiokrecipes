@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class AddRecipeDirectionsViewController: UIViewController {
 
@@ -86,8 +87,26 @@ class AddRecipeDirectionsViewController: UIViewController {
         recipe.ingredients = recipe.ingredients.filter({ !$0.isEmpty })
         recipe.directions = recipe.directions.filter({ !$0.isEmpty })
         
-        // TODO: make Firebase API call here
-        print(recipe as Any)
+        let db = Firestore.firestore()
+        var ref: DocumentReference? = nil
+        ref = db.collection("recipes").addDocument(data: [
+            // TODO: add recipe image data to Firestore
+            "name": self.recipe.name,
+            "description": self.recipe.description,
+            "prep_time_in_minutes": self.recipe.prepTimeInMinutes,
+            "cook_time_in_minutes": self.recipe.cookTimeInMinutes,
+            "ingredients": self.recipe.ingredients,
+            "directions": self.recipe.directions,
+            "author": Auth.auth().currentUser!.displayName!,
+            "user_id": Auth.auth().currentUser!.uid
+        ]) { error in
+            if let error = error {
+                print("Error adding recipe: \(error)")
+            } else {
+                print("Recipe added with ID: \(ref!.documentID)")
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
     }
     
     // MARK: - View life cycle

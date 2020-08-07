@@ -22,6 +22,7 @@ class SignupViewController: UIViewController {
     
     @IBOutlet var textFields: [UITextField]! {
         didSet {
+            // TODO: for firstName, lastName, email, userName - set the textfield delegates and not allow user to type in whitespaces.
             for textField in textFields {
                 // Add line to bottom of textfield
                 let line: UIView = {
@@ -198,20 +199,18 @@ class SignupViewController: UIViewController {
             
             print("\(user.email!) created")
             
-            let db = Firestore.firestore()
-            db.collection("users").document(user.uid).setData([
-                "first_name": firstName,
-                "last_name": lastName,
-                "username": username
-            ]) { error in
+            let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+            let displayName = "\(firstName.trimmingCharacters(in: .whitespacesAndNewlines)) \(lastName.trimmingCharacters(in: .whitespacesAndNewlines))"
+                changeRequest?.displayName = displayName
+            changeRequest?.commitChanges { (error) in
                 if let error = error {
-                    print("Error adding document: \(error)")
-                    self.showAlert(title: Constants.Strings.oopsAlertTitle, message: error.localizedDescription)
+                    print("Error updating user's display name: \(error)")
                 } else {
-                    print("Document added with ID: \(user.uid)")
+                    print("Updated user's name to \(displayName)")
                     self.navigateToExploreScreen()
                 }
             }
+
         }
     }
     
