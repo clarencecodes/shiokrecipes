@@ -116,9 +116,11 @@ class AddRecipeIngredientsViewController: UIViewController {
         
         prepTimePicker.delegate = self
         prepTimePicker.dataSource = self
+        prepTimePicker.selectRow(5, inComponent: 0, animated: false) // Set default prep time to 30 min
         
         cookTimePicker.delegate = self
         cookTimePicker.dataSource = self
+        cookTimePicker.selectRow(2, inComponent: 0, animated: false) // Set default cook time to 15 min
     }
     
     // MARK: - Class methods
