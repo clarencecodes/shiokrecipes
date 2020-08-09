@@ -149,6 +149,11 @@ extension TabBarController: UIImagePickerControllerDelegate, UINavigationControl
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        guard let imageURL = info[UIImagePickerController.InfoKey.imageURL] as? URL else {
+            print("Recipe imageURL is nil")
+            return
+        }
+        
         var image: UIImage!
         if let editedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage {
             print("edited image")
@@ -160,8 +165,10 @@ extension TabBarController: UIImagePickerControllerDelegate, UINavigationControl
         
         self.dismiss(animated: true, completion: {
             let vc = AddRecipeViewController(nibName: "AddRecipeViewController", bundle: nil)
+            
             var recipe = Recipe()
             recipe.image = image
+            recipe.imageUrl = imageURL
             vc.recipe = recipe
             
             let navigationController = UINavigationController(rootViewController: vc)

@@ -104,7 +104,21 @@ class AddRecipeDirectionsViewController: UIViewController {
                 print("Error adding recipe: \(error)")
             } else {
                 print("Recipe added with ID: \(ref!.documentID)")
-                self.dismiss(animated: true, completion: nil)
+                
+                // Add recipe image to Firebase Storage
+                
+                let recipeImagesRef = Storage.storage().reference(withPath: "recipe_images")
+                let imageRef = recipeImagesRef.child(ref!.documentID)
+                
+                imageRef.putFile(from: self.recipe.imageUrl!, metadata: nil) { (metadata, error) in
+                    guard metadata != nil else {
+                      print("Error adding recipe image to Firebase Storage")
+                      return
+                    }
+                    
+                    print("Recipe image uploaded successfully to Firebase Storage")
+                    self.dismiss(animated: true, completion: nil)
+                }
             }
         }
     }
