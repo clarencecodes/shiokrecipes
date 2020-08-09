@@ -83,7 +83,7 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "RecipeCollectionViewCell", for: indexPath) as! RecipeCollectionViewCell
-        let recipe = recipes[indexPath.row]
+        let recipe = recipes[indexPath.item]
         
         cell.authorNameLabel.text = recipe.author
         cell.titleLabel.text = recipe.name
@@ -93,6 +93,8 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
                 let data = try? Data(contentsOf: url),
                 let image = UIImage(data: data) {
                 cell.dishImageView.image = image
+                
+                self.recipes[indexPath.item].image = image
             }
         }
         
@@ -105,4 +107,9 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
         return CGSize(width: width, height: height)
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let vc = RecipeDetailViewController(nibName: "RecipeDetailViewController", bundle: nil)
+        vc.recipe = self.recipes[indexPath.item]
+        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

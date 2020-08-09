@@ -109,7 +109,9 @@ class AddRecipeViewController: UIViewController {
     @IBAction func nextButtonTapped(_ sender: UIButton) {
         print("nextButtonTapped")
         let vc = AddRecipeIngredientsViewController(nibName: "AddRecipeIngredientsViewController", bundle: nil)
-        vc.recipe = self.recipe
+        recipe.name = dishNameTextField.text ?? ""
+        recipe.description = aboutRecipeTextView.text
+        vc.recipe = recipe
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

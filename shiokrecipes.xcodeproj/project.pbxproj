@@ -43,6 +43,9 @@
 		11E5901924A486DE006C66C5 /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E5901824A486DE006C66C5 /* Extension+UIViewController.swift */; };
 		11E5901C24A60C86006C66C5 /* AddRecipeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11E5901A24A60C86006C66C5 /* AddRecipeViewController.swift */; };
 		11E5901D24A60C86006C66C5 /* AddRecipeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 11E5901B24A60C86006C66C5 /* AddRecipeViewController.xib */; };
+		750688F724E04EE20088C548 /* RecipeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 750688F524E04EE20088C548 /* RecipeDetailViewController.swift */; };
+		750688F824E04EE20088C548 /* RecipeDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 750688F624E04EE20088C548 /* RecipeDetailViewController.xib */; };
+		757FB7BF24E0515C003C113C /* RecipeDetailDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 757FB7BE24E0515C003C113C /* RecipeDetailDescriptionCell.swift */; };
 		75E04A1324DA96DD006ADF34 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75E04A1224DA96DD006ADF34 /* Recipe.swift */; };
 		AE44E1AD39AE123B8F65D19E /* Pods_shiokrecipes.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D84682D886E72A098AD60868 /* Pods_shiokrecipes.framework */; };
 /* End PBXBuildFile section */
@@ -87,6 +90,9 @@
 		11E5901A24A60C86006C66C5 /* AddRecipeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddRecipeViewController.swift; sourceTree = "<group>"; };
 		11E5901B24A60C86006C66C5 /* AddRecipeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddRecipeViewController.xib; sourceTree = "<group>"; };
 		6D8DE83C821659895733DE1C /* Pods-shiokrecipes.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiokrecipes.release.xcconfig"; path = "Target Support Files/Pods-shiokrecipes/Pods-shiokrecipes.release.xcconfig"; sourceTree = "<group>"; };
+		750688F524E04EE20088C548 /* RecipeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailViewController.swift; sourceTree = "<group>"; };
+		750688F624E04EE20088C548 /* RecipeDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RecipeDetailViewController.xib; sourceTree = "<group>"; };
+		757FB7BE24E0515C003C113C /* RecipeDetailDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeDetailDescriptionCell.swift; sourceTree = "<group>"; };
 		75E04A1224DA96DD006ADF34 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		D84682D886E72A098AD60868 /* Pods_shiokrecipes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_shiokrecipes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E95A418BAAF66E4EB4EAB9D6 /* Pods-shiokrecipes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shiokrecipes.debug.xcconfig"; path = "Target Support Files/Pods-shiokrecipes/Pods-shiokrecipes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -145,6 +151,8 @@
 				11DA95FA2491E9C700FF6C19 /* ForgotPasswordViewController.xib */,
 				11DA96002492390D00FF6C19 /* RecipeViewController.xib */,
 				1130EFF524924322007B5290 /* RecipeCollectionViewCell.swift */,
+				750688F624E04EE20088C548 /* RecipeDetailViewController.xib */,
+				757FB7BE24E0515C003C113C /* RecipeDetailDescriptionCell.swift */,
 				115716AB249E65CA0089031B /* SettingsCell.swift */,
 				115716AF249F4BC30089031B /* SettingsTextFieldCell.swift */,
 				115716B3249F68FD0089031B /* PasswordTextFieldCell.swift */,
@@ -165,6 +173,7 @@
 				11865DA524911F5300FC3743 /* SignupViewController.swift */,
 				11DA95F92491E9C700FF6C19 /* ForgotPasswordViewController.swift */,
 				11DA95FF2492390D00FF6C19 /* RecipeViewController.swift */,
+				750688F524E04EE20088C548 /* RecipeDetailViewController.swift */,
 				1130EFF724935F3A007B5290 /* ExploreViewController.swift */,
 				1130EFF924935FFB007B5290 /* MyRecipesViewController.swift */,
 				1130EFFB24936096007B5290 /* FavoritesViewController.swift */,
@@ -285,6 +294,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11DA95FC2491E9C700FF6C19 /* ForgotPasswordViewController.xib in Resources */,
+				750688F824E04EE20088C548 /* RecipeDetailViewController.xib in Resources */,
 				117C4E732494B01D00E97466 /* GoogleService-Info.plist in Resources */,
 				112AA0272490CB4700A4D822 /* LoginViewController.xib in Resources */,
 				1166315924B1C05A0056D78E /* AddRecipeIngredientsViewController.xib in Resources */,
@@ -366,7 +376,9 @@
 				11BB616624BD770B00B33CA5 /* RecipeDirectionTextViewCell.swift in Sources */,
 				11E5901C24A60C86006C66C5 /* AddRecipeViewController.swift in Sources */,
 				112AA0112490BACD00A4D822 /* AppDelegate.swift in Sources */,
+				750688F724E04EE20088C548 /* RecipeDetailViewController.swift in Sources */,
 				115716AE249F49B60089031B /* AccountSettingsViewController.swift in Sources */,
+				757FB7BF24E0515C003C113C /* RecipeDetailDescriptionCell.swift in Sources */,
 				112AA0132490BACD00A4D822 /* SceneDelegate.swift in Sources */,
 				1130F005249371DC007B5290 /* TabBarController.swift in Sources */,
 				1130EFFC24936096007B5290 /* FavoritesViewController.swift in Sources */,
