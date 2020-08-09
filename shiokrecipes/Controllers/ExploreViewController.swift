@@ -110,6 +110,7 @@ extension ExploreViewController: UICollectionViewDelegate, UICollectionViewDataS
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = RecipeDetailViewController(nibName: "RecipeDetailViewController", bundle: nil)
         vc.recipe = self.recipes[indexPath.item]
+        self.navigationController?.isNavigationBarHidden = false
         self.navigationController?.pushViewController(vc, animated: true)
     }
 }

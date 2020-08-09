@@ -29,6 +29,10 @@ class RecipeDetailViewController: UIViewController {
         tableView.register(RecipeDetailDescriptionCell.self, forCellReuseIdentifier: "RecipeDetailDescriptionCell")
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
 }
 
 
