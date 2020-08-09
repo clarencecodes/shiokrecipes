@@ -12,6 +12,7 @@ struct Recipe {
     var name: String
     var image: UIImage
     var imageUrl: URL?
+    var author: String
     var description: String
     var prepTimeInMinutes: Int
     var cookTimeInMinutes: Int
@@ -22,6 +23,7 @@ struct Recipe {
         self.name = ""
         self.image = UIImage()
         self.imageUrl = nil
+        self.author = ""
         self.description = ""
         self.prepTimeInMinutes = 30
         self.cookTimeInMinutes = 15
