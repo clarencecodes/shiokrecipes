@@ -22,7 +22,7 @@ class RecipeViewController: UIViewController {
         didSet {
             collectionView.contentInset = UIEdgeInsets(top: 15, left: 15, bottom: 15, right: 15)
             
-            collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: "Cell")
+            collectionView.register(RecipeCollectionViewCell.self, forCellWithReuseIdentifier: "RecipeCollectionViewCell")
         }
     }
     

@@ -90,7 +90,6 @@ class AddRecipeDirectionsViewController: UIViewController {
         let db = Firestore.firestore()
         var ref: DocumentReference? = nil
         ref = db.collection("recipes").addDocument(data: [
-            // TODO: add recipe image data to Firestore
             "name": self.recipe.name,
             "description": self.recipe.description,
             "prep_time_in_minutes": self.recipe.prepTimeInMinutes,
