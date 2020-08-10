@@ -17,19 +17,19 @@ Design Pattern - MVC
 
 Authentication which includes logging in, signing up, resetting/changing of password, was done using Firebase.
 
-![Log in](Screenshots/login.png)
-![Sign up](Screenshots/signup.png)
-![Forgot password](Screenshots/forgot_password.png)
-![Check email to reset password](Screenshots/check_email_to_reset_password)
+<img src="/Screenshots/login.png" alt="login" width="200">
+<img src="/Screenshots/signup.png" alt="signup" width="200">
+<img src="/Screenshots/forgot_password.png" alt="forgot password" width="200">
+<img src="/Screenshots/check_email_to_reset_password.png" alt="check email to reset password" width="200">
 
 ### Uploading of recipe to Firestore
 
 To upload a recipe, a user would start by taking a picture of the dish, thereafter specifying more details such as the prep/cook time, ingredients and directions. The recipe details are being uploaded to Firestore and the recipe image uploaded to Firebase Storage.
 
-![Add recipe 1](Screenshots/add_recipe_1.png)
-![Add recipe 2](Screenshots/add_recipe_2.png)
-![Add recipe 3](Screenshots/add_recipe_3.png)
-![Add recipe 4](Screenshots/add_recipe_4.png)
+<img src="/Screenshots/add_recipe_1.png" alt="add recipe 1" width="200">
+<img src="/Screenshots/add_recipe_2.png" alt="add recipe 2" width="200">
+<img src="/Screenshots/add_recipe_3.png" alt="add recipe 3" width="200">
+<img src="/Screenshots/add_recipe_4.png" alt="add recipe 4" width="200">
 
 ### Account Settings
 
@@ -37,9 +37,9 @@ This is where a user would be able to update their first & last name, view the t
 
 // Add screenshots of account settings here
 
-![Account settings](Screenshots/account_settings.png)
-![Edit profile](Screenshots/edit_profile.png)
-![Change password](Screenshots/change_password.png)
+<img src="/Screenshots/account_settings.png" alt="account settings" width="200">
+<img src="/Screenshots/edit_profile.png" alt="edit profile" width="200">
+<img src="/Screenshots/change_password.png" alt="change password" width="200">
 
 ## Upcoming Features
 
